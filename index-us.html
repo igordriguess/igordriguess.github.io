@@ -1,0 +1,2788 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Igor Rodrigues's Portfolio - Cloud Solutions Architect with over 8 years of experience in Multicloud Architecture, Software Engineering, and DevOps.">
+    <meta name="keywords" content="Igor Rodrigues, Cloud Solutions Architect, DevOps, AWS, Azure, OCI, GCP, Python, PowerShell, Kubernetes, Terraform">
+    <meta name="author" content="Igor Rodrigues">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:title" content="Igor Rodrigues - Cloud Solutions Architect">
+    <meta property="og:description" content="Professional portfolio of Igor Rodrigues, a specialist in multicloud architecture, DevOps, and automation with over 8 years of experience.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://igordriguess.dev">
+    <meta property="og:image" content="image.jpg">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Igor Rodrigues - Cloud Solutions Architect">
+    <meta name="twitter:description" content="Specialist in multicloud architecture, DevOps, and automation with over 8 years of experience.">
+    <meta name="twitter:image" content="image.jpg">
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <title>Igor Rodrigues | Cloud Solutions Architect - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 4px;
+        }
+        .ide-bg {
+            background-color: #0a0a0a;
+            background-image: 
+                linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            position: relative;
+        }
+        
+        .ide-bg::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        .code-font {
+            font-family: 'Fira Code', 'Courier New', monospace;
+        }
+        .tab-active {
+            border-bottom: 2px solid #3b82f6;
+            color: #3b82f6;
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+        
+        .ide-tab {
+            position: relative;
+            padding: 8px 20px;
+            margin-right: 4px;
+            background: linear-gradient(135deg, rgba(55, 65, 81, 0.6), rgba(55, 65, 81, 0.4));
+            border-radius: 8px 8px 0 0;
+            border: 1px solid rgba(75, 85, 99, 0.5);
+            border-bottom: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .ide-tab:hover {
+            background: linear-gradient(135deg, rgba(75, 85, 99, 0.8), rgba(75, 85, 99, 0.6));
+            color: #60a5fa;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2);
+        }
+        
+        .ide-tab.active {
+            background: linear-gradient(135deg, rgba(17, 24, 39, 1), rgba(31, 41, 55, 0.9));
+            border-color: #3b82f6;
+            color: #3b82f6;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .ide-tab::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #ef4444;
+            flex-shrink: 0;
+        }
+        
+        .ide-tab.active::before {
+            background-color: #10b981;
+        }
+        
+        .tab-container {
+            display: flex;
+            align-items: flex-end;
+            border-bottom: 2px solid rgba(75, 85, 99, 0.5);
+            padding-bottom: 0;
+            margin-bottom: 20px;
+        }
+        
+        .breadcrumb {
+            color: #6b7280;
+            font-size: 12px;
+            font-family: 'Fira Code', monospace;
+            margin-bottom: 10px;
+        }
+        
+        .breadcrumb .path-separator {
+            color: #3b82f6;
+            margin: 0 4px;
+        }
+        
+        .file-explorer {
+            background: linear-gradient(135deg, rgba(17, 24, 39, 0.98), rgba(31, 41, 55, 0.95));
+            border-right: 1px solid rgba(75, 85, 99, 0.5);
+            box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4);
+            width: 280px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 40;
+            transform: translateX(-100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+            backdrop-filter: blur(20px);
+        }
+        
+        .file-explorer.open {
+            transform: translateX(0);
+        }
+        
+        .file-explorer-header {
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(75, 85, 99, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .file-tree {
+            padding: 8px 0;
+        }
+        
+        .file-item {
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            border-radius: 6px;
+            margin: 2px 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .file-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            transition: left 0.6s ease;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .file-item:hover {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(59, 130, 246, 0.08));
+            transform: translateX(4px);
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+        }
+        
+        .file-item:hover::before {
+            left: 100%;
+        }
+        
+        .file-item.active {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.25), rgba(59, 130, 246, 0.15));
+            border-left: 3px solid #3b82f6;
+            transform: translateX(4px);
+            box-shadow: 0 2px 12px rgba(59, 130, 246, 0.3);
+        }
+        
+        .file-item .icon {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+        
+        .folder-item {
+            font-weight: 600;
+            color: #60a5fa;
+        }
+        
+        .folder-item .icon {
+            color: #f59e0b;
+        }
+        
+        .file-item.typescript .icon {
+            color: #3b82f6;
+        }
+        
+        .file-item.javascript .icon {
+            color: #f59e0b;
+        }
+        
+        .file-item.markdown .icon {
+            color: #10b981;
+        }
+        
+        .file-item.pdf .icon {
+            color: #ef4444;
+        }
+        
+        .file-explorer-toggle {
+            position: fixed;
+            left: 16px;
+            top: 80px;
+            z-index: 50;
+            background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(31, 41, 55, 0.85));
+            border: 1px solid rgba(75, 85, 99, 0.5);
+            border-radius: 8px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 1;
+            visibility: visible;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .file-explorer-toggle:hover {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.1));
+            border-color: #3b82f6;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+        
+        .file-explorer-toggle.hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-20px);
+        }
+        
+        .content-with-explorer {
+            margin-left: 0;
+            transition: margin-left 0.3s ease;
+        }
+        
+        .content-with-explorer.shifted {
+            margin-left: 280px;
+        }
+        
+        @media (max-width: 768px) {
+            .file-explorer {
+                width: 100vw;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .content-with-explorer.shifted {
+                margin-left: 0;
+            }
+            
+            /* Improve touch targets for mobile */
+            .file-item {
+                padding: 12px 16px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+            
+            /* Prevent text selection on navigation items */
+            .file-item, .ide-tab {
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                -webkit-tap-highlight-color: transparent;
+            }
+        }
+        
+
+        
+
+        /* Card enhancements */
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(59, 130, 246, 0.05) 0%,
+                rgba(16, 185, 129, 0.03) 50%,
+                rgba(168, 85, 247, 0.05) 100%
+            );
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .card-hover:hover::before {
+            opacity: 1;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 
+                0 10px 40px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(59, 130, 246, 0.1);
+        }
+        
+        /* Gradient text effects */
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-text-purple {
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .loading {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .loading::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(59, 130, 246, 0.2),
+                transparent
+            );
+            animation: loading 1.5s infinite;
+        }
+        
+        @keyframes loading {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        /* Floating animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Pulse glow effect */
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
+            50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.8); }
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+        
+        /* Accessibility improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        .focus\:not-sr-only:focus {
+            position: static;
+            width: auto;
+            height: auto;
+            padding: 0.5rem 1rem;
+            margin: 0;
+            overflow: visible;
+            clip: auto;
+            white-space: normal;
+        }
+        
+        /* Focus styles for better accessibility */
+        button:focus-visible,
+        a:focus-visible,
+        input:focus-visible {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+        }
+        
+
+        
+        /* Enhanced scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(17, 24, 39, 0.8);
+            border-radius: 6px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #3b82f6, #1d4ed8);
+            border-radius: 6px;
+            border: 2px solid rgba(17, 24, 39, 0.8);
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #60a5fa, #3b82f6);
+        }
+        
+        /* Scroll to Top Button */
+        #scrollToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.9), rgba(29, 78, 216, 0.9));
+            border: 2px solid rgba(59, 130, 246, 0.5);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        #scrollToTop.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        #scrollToTop:hover {
+            background: linear-gradient(135deg, rgba(96, 165, 250, 1), rgba(59, 130, 246, 1));
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.5);
+        }
+        
+        #scrollToTop:active {
+            transform: translateY(-2px);
+        }
+        
+        #scrollToTop svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+
+        
+
+        
+
+        
+        /* Enhanced Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .file-explorer {
+                width: 320px;
+            }
+            
+            .content-with-explorer.shifted {
+                margin-left: 320px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .tab-container {
+                flex-wrap: wrap;
+                gap: 4px;
+            }
+            
+            .ide-tab {
+                font-size: 12px;
+                padding: 6px 12px;
+                margin-right: 2px;
+            }
+            
+            .ide-tab span {
+                display: none;
+            }
+            
+            .ide-tab i {
+                margin-right: 0;
+            }
+            
+            .breadcrumb {
+                font-size: 10px;
+            }
+            
+            .toast-container {
+                right: 10px;
+                left: 10px;
+                top: 10px;
+            }
+            
+            .toast {
+                max-width: none;
+            }
+            
+            .file-explorer-toggle {
+                left: 10px;
+                top: 60px;
+            }
+            
+            .progress-bar {
+                height: 6px;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .grid.grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .grid.grid-cols-1.md\\:grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .text-3xl.md\\:text-4xl {
+                font-size: 1.75rem;
+            }
+            
+            .file-explorer {
+                width: 100vw;
+                height: 100vh;
+            }
+            
+            .ide-tab {
+                font-size: 11px;
+                padding: 4px 8px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+            
+            .bg-gray-900.rounded-lg.p-6 {
+                padding: 1rem;
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+            }
+            
+            .space-y-12 > * + * {
+                margin-top: 2rem;
+            }
+            
+            .toast-container {
+                right: 5px;
+                left: 5px;
+                top: 5px;
+            }
+            
+            .file-explorer-toggle {
+                left: 5px;
+                top: 50px;
+                padding: 6px;
+            }
+        }
+        
+        /* High DPI displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .progress-bar {
+                height: 6px;
+            }
+            
+            .toast {
+                font-size: 13px;
+            }
+        }
+        
+        /* Hover states for touch devices */
+        @media (hover: none) {
+            .hover-lift:hover {
+                transform: none;
+            }
+            
+            .hover-glow:hover {
+                box-shadow: none;
+            }
+            
+            .ide-tab:hover,
+            .file-item:hover {
+                background-color: initial;
+            }
+        }
+        
+        /* Reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .loading::before {
+                animation: none;
+            }
+        }
+        
+        /* Language Switcher Styles */
+        .language-switcher {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(55, 65, 81, 0.6), rgba(55, 65, 81, 0.4));
+            border: 1px solid rgba(75, 85, 99, 0.5);
+            border-radius: 8px;
+            padding: 8px 12px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .language-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            font-size: 14px;
+            border: 1px solid transparent;
+            background: transparent;
+        }
+        
+        .language-btn:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.3);
+            transform: translateY(-1px);
+        }
+        
+        .language-btn.active {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: #3b82f6;
+            color: #3b82f6;
+            font-weight: 600;
+        }
+        
+        .language-btn .flag {
+            font-size: 20px;
+            line-height: 1;
+        }
+    </style>
+
+    <!-- NEW DESIGN SYSTEM OVERRIDES -->
+    <style>
+        /* === BASE === */
+        html {
+            scroll-padding-top: 80px;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+            background-color: #06060f !important;
+        }
+
+        /* Hide old tab container from header - replaced by sticky nav */
+        .tab-container { display: none !important; }
+        /* Hide old breadcrumb */
+        .breadcrumb { display: none !important; }
+
+        /* === STICKY NAVIGATION BAR === */
+        .main-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(6, 6, 15, 0.88);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(75, 85, 99, 0.25);
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+            gap: 16px;
+        }
+
+        .nav-brand {
+            font-size: 0.95rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3b82f6, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            white-space: nowrap;
+            flex-shrink: 0;
+            letter-spacing: -0.01em;
+        }
+
+        .nav-tabs-container {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex: 1;
+            min-width: 0;                 /* allow shrink so overflow-x works */
+            justify-content: center;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .nav-tabs-container::-webkit-scrollbar { display: none; }
+
+        .nav-tab {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 7px 16px;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: #64748b;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            white-space: nowrap;
+            text-decoration: none;
+            border: 1px solid transparent;
+            font-family: 'Fira Code', monospace;
+        }
+        .nav-tab:hover {
+            color: #94a3b8;
+            background: rgba(255,255,255,0.05);
+        }
+        .nav-tab.active {
+            background: rgba(59, 130, 246, 0.15);
+            border-color: rgba(59, 130, 246, 0.4);
+            color: #60a5fa;
+            font-weight: 600;
+            box-shadow: 0 0 12px rgba(59, 130, 246, 0.15);
+        }
+        .nav-tab svg { width: 14px; height: 14px; }
+
+        .nav-controls { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+
+        /* === HERO SECTION === */
+        .hero-section {
+            padding: 56px 0 44px;
+            background:
+                radial-gradient(ellipse 80% 40% at 50% 0%, rgba(59, 130, 246, 0.07) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 30% at 80% 80%, rgba(16, 185, 129, 0.04) 0%, transparent 50%);
+            border-bottom: 1px solid rgba(75, 85, 99, 0.2);
+            margin-bottom: 48px;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-avatar-wrapper { flex-shrink: 0; position: relative; display: inline-block; }
+
+        .hero-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 3px solid rgba(59, 130, 246, 0.5);
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-status {
+            position: absolute;
+            bottom: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(6, 6, 15, 0.85);
+            border: 1px solid rgba(16, 185, 129, 0.45);
+            border-radius: 20px;
+            padding: 3px 10px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #10b981;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap;
+            backdrop-filter: blur(10px);
+            letter-spacing: 0.02em;
+        }
+        .hero-status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #10b981;
+            animation: pulse-dot 2s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+        @keyframes pulse-dot { 0%,100%{opacity:1} 50%{opacity:0.35} }
+
+        .hero-info { flex: 1; min-width: 240px; }
+
+        .hero-name {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            margin-bottom: 8px;
+        }
+
+        .hero-title {
+            font-size: 1.05rem;
+            color: #60a5fa;
+            font-weight: 500;
+            margin-bottom: 14px;
+            letter-spacing: 0.01em;
+        }
+
+        .hero-bio {
+            color: #94a3b8;
+            font-size: 0.92rem;
+            line-height: 1.75;
+            margin-bottom: 20px;
+            max-width: 100%;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+            font-size: 0.82rem;
+            color: #64748b;
+        }
+        .hero-meta span { display: flex; align-items: center; gap: 6px; }
+        .hero-meta svg { width: 13px; height: 13px; color: #3b82f6; flex-shrink: 0; }
+
+        .hero-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+        /* STATS ROW */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .stat-card {
+            background: rgba(17, 24, 39, 0.7);
+            border: 1px solid rgba(75, 85, 99, 0.25);
+            border-radius: 16px;
+            padding: 20px 16px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(59,130,246,0.06), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .stat-card:hover { border-color: rgba(59,130,246,0.35); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+        .stat-card:hover::after { opacity: 1; }
+
+        .stat-number {
+            display: block;
+            font-size: 1.9rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #3b82f6, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 6px;
+            letter-spacing: -0.03em;
+        }
+        .stat-label { font-size: 0.72rem; color: #64748b; font-weight: 500; letter-spacing: 0.03em; text-transform: uppercase; }
+
+        /* === MODERN BUTTONS === */
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white; border: none; padding: 10px 24px;
+            border-radius: 50px; font-weight: 600; font-size: 0.875rem;
+            cursor: pointer; transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+            box-shadow: 0 4px 16px rgba(59,130,246,0.35);
+            text-decoration: none; font-family: 'Inter', sans-serif;
+            letter-spacing: 0.01em;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(59,130,246,0.5); background: linear-gradient(135deg,#60a5fa,#3b82f6); color: white; }
+        .btn-primary:active { transform: translateY(0); }
+        .btn-primary svg { width: 16px; height: 16px; }
+
+        .btn-secondary {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(59,130,246,0.08); color: #60a5fa;
+            border: 1px solid rgba(59,130,246,0.35); padding: 10px 24px;
+            border-radius: 50px; font-weight: 600; font-size: 0.875rem;
+            cursor: pointer; transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+            text-decoration: none; font-family: 'Inter', sans-serif;
+        }
+        .btn-secondary:hover { background: rgba(59,130,246,0.18); border-color: rgba(59,130,246,0.55); transform: translateY(-2px); color: #93c5fd; box-shadow: 0 4px 16px rgba(59,130,246,0.2); }
+        .btn-secondary svg { width: 16px; height: 16px; }
+
+        .btn-blue-pill {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white; border: none; padding: 8px 20px;
+            border-radius: 50px; font-weight: 600; font-size: 0.82rem;
+            cursor: pointer; transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+            box-shadow: 0 4px 12px rgba(59,130,246,0.3);
+            text-decoration: none; font-family: 'Inter', sans-serif;
+        }
+        .btn-blue-pill:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(59,130,246,0.45); color: white; }
+        .btn-blue-pill svg { width: 14px; height: 14px; }
+
+        .btn-green-pill {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white; border: none; padding: 8px 20px;
+            border-radius: 50px; font-weight: 600; font-size: 0.82rem;
+            cursor: pointer; transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+            box-shadow: 0 4px 12px rgba(16,185,129,0.3);
+            text-decoration: none; font-family: 'Inter', sans-serif;
+        }
+        .btn-green-pill:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(16,185,129,0.45); color: white; }
+
+        .btn-purple-pill {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+            color: white; border: none; padding: 8px 20px;
+            border-radius: 50px; font-weight: 600; font-size: 0.82rem;
+            cursor: pointer; transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+            box-shadow: 0 4px 12px rgba(139,92,246,0.3);
+            text-decoration: none; font-family: 'Inter', sans-serif;
+        }
+        .btn-purple-pill:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(139,92,246,0.45); color: white; }
+
+        .btn-cyan-pill {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            color: white; border: none; padding: 8px 20px;
+            border-radius: 50px; font-weight: 600; font-size: 0.82rem;
+            cursor: pointer; transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+            box-shadow: 0 4px 12px rgba(6,182,212,0.3);
+            text-decoration: none; font-family: 'Inter', sans-serif;
+        }
+        .btn-cyan-pill:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(6,182,212,0.45); color: white; }
+
+        /* Social icon buttons */
+        .social-btn {
+            width: 40px; height: 40px;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px; color: #94a3b8;
+            transition: all 0.3s; text-decoration: none; flex-shrink: 0;
+        }
+        .social-btn:hover { background: rgba(59,130,246,0.15); border-color: rgba(59,130,246,0.4); color: #60a5fa; transform: translateY(-2px); }
+        .social-btn svg { width: 18px; height: 18px; }
+
+        /* === SECTION / CARD UPGRADE === */
+        .bg-gray-900.rounded-lg {
+            background: rgba(11, 11, 22, 0.88) !important;
+            border-color: rgba(75,85,99,0.22) !important;
+            border-radius: 20px !important;
+        }
+        .bg-gray-800.rounded-lg {
+            background: rgba(16, 20, 38, 0.9) !important;
+            border-color: rgba(75,85,99,0.28) !important;
+            border-radius: 14px !important;
+        }
+
+        /* Language switcher compact pill */
+        .language-switcher {
+            background: rgba(17,24,39,0.6) !important;
+            border: 1px solid rgba(75,85,99,0.4) !important;
+            border-radius: 50px !important;
+            padding: 4px !important;
+            gap: 2px !important;
+            box-shadow: none !important;
+        }
+        .language-btn {
+            padding: 5px 12px !important;
+            border-radius: 50px !important;
+            font-size: 0.78rem !important;
+            font-weight: 600 !important;
+        }
+        .language-btn.active {
+            background: rgba(59,130,246,0.22) !important;
+            border: 1px solid rgba(59,130,246,0.4) !important;
+            color: #60a5fa !important;
+        }
+
+        /* === RESPONSIVE === */
+
+        /* ── 768 px (tablet / large phone landscape) ─────────────────── */
+        @media (max-width: 768px) {
+            html { scroll-padding-top: 72px; }
+            .main-nav { padding: 0 16px; height: 56px; }
+            .nav-brand { font-size: 0.85rem; }
+            /* Hide text labels from language buttons — keep flags only */
+            .language-btn span:last-child { display: none !important; }
+            .language-switcher { gap: 4px !important; }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); }
+            .hero-content { gap: 24px; }
+            .hero-name { font-size: 1.9rem; }
+            /* PDF embed useless on mobile — swap with download card */
+            .pdf-embed-wrapper { display: none !important; }
+            .pdf-mobile-card  { display: flex !important; }
+            /* Hide fullscreen button on mobile — download only */
+            .resume-header-btns button { display: none !important; }
+        }
+
+        /* ── 640 px (small tablet / large phone landscape) ────────────── */
+        @media (max-width: 640px) {
+            /* Hide tab text — icons only — give nav room to breathe */
+            .nav-tab span { display: none !important; }
+            .nav-tab { padding: 8px 12px; gap: 0; }
+            .nav-tab svg { width: 16px; height: 16px; }
+            .nav-brand { font-size: 0.8rem; }
+        }
+
+        /* ── 540 px (phone portrait) ──────────────────────────────────── */
+        @media (max-width: 540px) {
+            .hero-section { padding: 28px 0 24px; margin-bottom: 28px; }
+            .hero-content { flex-direction: column; align-items: center; gap: 20px; text-align: center; }
+            .hero-img { width: 100px; height: 100px; }
+            .hero-info { min-width: unset; width: 100%; }
+            .hero-name { font-size: 1.65rem; }
+            .hero-bio { font-size: 0.875rem; }
+            .hero-meta { justify-content: center; gap: 10px; font-size: 0.78rem; }
+            .hero-actions { justify-content: center; }
+            /* stat cards slightly smaller */
+            .stat-card { padding: 14px 10px; }
+            .stat-number { font-size: 1.5rem; }
+            .stat-label { font-size: 0.65rem; }
+            /* side icons in publication cards hidden to save space */
+            .publication-icon { display: none !important; }
+            /* section card inner padding */
+            section.bg-gray-900 { padding: 16px !important; }
+            /* tight modal overlay */
+            #projectModal, #servicesModal, #articleModal, #sharesModal { padding: 8px !important; }
+            /* single-column grids inside modals */
+            #projectModal  .grid,
+            #servicesModal .grid,
+            #articleModal  .grid,
+            #sharesModal   .grid { grid-template-columns: 1fr !important; }
+            /* modal sticky header */
+            #projectModal  > div .sticky,
+            #servicesModal > div .sticky,
+            #articleModal  > div .sticky,
+            #sharesModal   > div .sticky { padding: 12px 16px !important; }
+            /* scroll-to-top button */
+            #scrollToTop { bottom: 16px; right: 16px; width: 42px; height: 42px; }
+            #scrollToTop svg { width: 20px; height: 20px; }
+        }
+
+        /* ── 480 px (small phone) ─────────────────────────────────────── */
+        @media (max-width: 480px) {
+            .nav-tab { padding: 6px 10px; font-size: 0.76rem; }
+            .nav-tab span { font-size: 0.72rem; }
+            .language-btn { padding: 3px 8px !important; font-size: 0.73rem !important; }
+            .container { padding-left: 12px !important; padding-right: 12px !important; }
+            .space-y-12 > * + * { margin-top: 20px; }
+            /* wrap section title + subtitle so they don't overflow */
+            .section-title-row { flex-wrap: wrap; gap: 4px; }
+            /* publication card bottom row stacks on very narrow */
+            .pub-card-footer { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .pub-card-footer button,
+            .pub-card-footer a { width: 100%; justify-content: center; }
+            /* project card footer: label on top, button below */
+            .proj-card-footer { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .proj-card-footer button,
+            .proj-card-footer a { width: 100%; justify-content: center; }
+            /* resume section header buttons stack */
+            .resume-header-btns { flex-direction: column; align-items: flex-start; gap: 6px !important; }
+        }
+
+        /* ── 390 px (iPhone SE and similar) ──────────────────────────── */
+        @media (max-width: 390px) {
+            .nav-brand { display: none; }
+            .nav-tabs-container { justify-content: flex-start; gap: 2px; }
+            .main-nav { gap: 4px; padding: 0 10px; }
+            .nav-tab { padding: 7px 10px; }
+            .nav-controls { gap: 6px !important; }
+        }
+
+        /* === MODAL FIX === */
+        #projectModal,
+        #servicesModal,
+        #articleModal,
+        #sharesModal {
+            display: flex !important;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            overflow-y: auto;
+            padding: 16px;
+            z-index: 200 !important;
+        }
+        #projectModal.hidden,
+        #servicesModal.hidden,
+        #articleModal.hidden,
+        #sharesModal.hidden {
+            display: none !important;
+        }
+        #projectModal > div,
+        #servicesModal > div,
+        #articleModal > div,
+        #sharesModal > div {
+            width: 100%;
+            flex-shrink: 0;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+    </style>
+</head>
+<body class="ide-bg text-gray-300 min-h-screen code-font" role="document">
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded z-50">Skip to main content</a>
+    <div id="mainContent">
+
+    <!-- Sticky Navigation -->
+    <nav class="main-nav" id="main-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-brand">Igor Rodrigues</div>
+        <div class="nav-tabs-container" role="tablist">
+            <a href="#summary" class="nav-tab active" data-tab="summary" role="tab" aria-selected="true">
+                <i data-feather="user"></i>
+                <span>summary.tsx</span>
+            </a>
+            <a href="#projects" class="nav-tab" data-tab="projects" role="tab" aria-selected="false">
+                <i data-feather="folder"></i>
+                <span>projects.js</span>
+            </a>
+            <a href="#publications" class="nav-tab" data-tab="publications" role="tab" aria-selected="false">
+                <i data-feather="file-text"></i>
+                <span>publications.md</span>
+            </a>
+            <a href="#resume" class="nav-tab" data-tab="resume" role="tab" aria-selected="false">
+                <i data-feather="download"></i>
+                <span>resume.pdf</span>
+            </a>
+        </div>
+        <div class="nav-controls">
+            <div class="language-switcher">
+                <button class="language-btn" data-lang="pt-br" aria-label="Português" title="Português">
+                    <span>🇧🇷</span>
+                    <span class="hidden sm:inline">PT</span>
+                </button>
+                <button class="language-btn active" data-lang="en-us" aria-label="English" title="English">
+                    <span>🇺🇸</span>
+                    <span class="hidden sm:inline">EN</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="main-content" aria-label="Professional profile">
+        <div class="container mx-auto px-4">
+            <div class="hero-content">
+                <div class="hero-avatar-wrapper">
+                    <img src="image.jpg" alt="Igor Rodrigues" class="hero-img float-animation pulse-glow">
+                    <div class="hero-status">
+                        <span class="hero-status-dot"></span>
+                        Available
+                    </div>
+                </div>
+                <div class="hero-info">
+                    <h1 class="hero-name gradient-text">Igor Rodrigues</h1>
+                    <p class="hero-title">Cloud Solutions Architect</p>
+                    <p class="hero-bio">Cloud Solutions Architect with over 8 years of experience in Multicloud Architecture, Software Engineering, and DevOps, with projects in OCI, AWS, Azure, GCP, and Huawei.</p>
+                    <div class="hero-meta">
+                        <span><i data-feather="map-pin"></i> Ribeirão Preto - SP, Brazil</span>
+                        <span><i data-feather="briefcase"></i> CCM Tecnologia</span>
+                        <span><i data-feather="phone"></i> +55 16 99158-4347</span>
+                    </div>
+                    <div class="hero-actions">
+                        <a href="#resume" class="btn-primary">
+                            <i data-feather="file-text"></i>
+                            View Resume
+                        </a>
+                        <a href="#projects" class="btn-secondary">
+                            <i data-feather="code"></i>
+                            Projects
+                        </a>
+                        <a href="https://github.com/igordriguess" target="_blank" class="social-btn" aria-label="GitHub">
+                            <i data-feather="github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/igordriguess" target="_blank" class="social-btn" aria-label="LinkedIn">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                        <a href="mailto:igorvprodrigues@gmail.com" class="social-btn" aria-label="Email">
+                            <i data-feather="mail"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Stats Row -->
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-number">8+</span>
+                    <span class="stat-label">Years of Experience</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Cloud Platforms</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Certifications</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Technologies</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mx-auto px-4 pb-8">
+        <main>
+            <div class="space-y-12">
+                <section id="summary" class="bg-gray-900 rounded-lg p-6 border border-gray-800 card-hover" data-aos="fade-up">
+                    <div class="flex items-center mb-4 section-title-row">
+                        <h2 class="text-2xl font-bold gradient-text">summary()</h2>
+                        <span class="ml-2 text-gray-500">// Who I am</span>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="text-gray-300">
+                            Professional with over 8 years of experience in highly complex multi-cloud projects, Software Engineering, and DevOps,
+                            working in companies across various sectors, including technology, automotive, healthcare, retail, and financial services.
+                        </p>
+                        <p class="text-gray-300">
+                            Currently working as a Cloud Solutions Architect at CCM Tecnologia, focusing on migration projects,
+                            microservices implementation, and cloud infrastructure optimization.
+                        </p>
+                        <p class="text-gray-300">
+                            I have experience in developing tools and automations using Python, PowerShell, Bash, TypeScript, Java and JavaScript
+                            as well as applying Infrastructure as Code (IaC) practices with Terraform, Ansible, Jenkins, and Kubernetes, promoting greater efficiency,
+                            scalability, and governance in corporate environments.
+                        </p>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-6">
+                            <div class="bg-gray-800 p-4 rounded border-l-4 border-blue-400">
+                                <h3 class="text-blue-400 font-bold">Languages</h3>
+                                <p class="text-sm text-gray-300">Python, PowerShell, Bash, TypeScript, Java, JavaScript</p>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded border-l-4 border-green-400">
+                                <h3 class="text-green-400 font-bold">Cloud Platforms</h3>
+                                <p class="text-sm text-gray-300">OCI, AWS, Azure, GCP, Huawei</p>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded border-l-4 border-purple-400">
+                                <h3 class="text-purple-400 font-bold">DevOps</h3>
+                                <p class="text-sm text-gray-300">Terraform, Ansible, Kubernetes, Docker, Jenkins</p>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded border-l-4 border-yellow-400">
+                                <h3 class="text-yellow-400 font-bold">Databases</h3>
+                                <p class="text-sm text-gray-300">SQL Server, Oracle, PostgreSQL, MySQL, MongoDB, Autonomous Database</p>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded border-l-4 border-red-400">
+                                <h3 class="text-red-400 font-bold">Monitoring</h3>
+                                <p class="text-sm text-gray-300">Zabbix, Grafana, DataDog</p>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded border-l-4 border-indigo-400">
+                                <h3 class="text-indigo-400 font-bold">Tools</h3>
+                                <p class="text-sm text-gray-300">RabbitMQ, Apache Kafka, Apache Tomcat, WildFly, N8N, NodeJS</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="projects" class="bg-gray-900 rounded-lg p-6 border border-gray-800 card-hover" data-aos="fade-up">
+                    <div class="flex items-center mb-4 section-title-row">
+                        <h2 class="text-2xl font-bold gradient-text">projects()</h2>
+                        <span class="ml-2 text-gray-500">// My recent works</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-800 rounded-lg overflow-hidden border border-gray-700 hover:border-blue-400 transition-colors">
+                            <div class="w-full h-40 bg-gradient-to-br from-blue-600 to-purple-700 flex items-center justify-center">
+                                <i data-feather="users" class="w-16 h-16 text-white"></i>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-lg font-bold text-blue-400">Active Directory Management Tool</h3>
+                                <p class="text-sm text-gray-300 mt-2">PowerShell script to automate AD operations: create users, reset passwords, manage groups and permissions with an intuitive interface.</p>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span class="text-xs bg-gray-700 px-2 py-1 rounded">PowerShell</span>
+                                    <span class="text-xs bg-gray-700 px-2 py-1 rounded">Active Directory</span>
+                                    <span class="text-xs bg-gray-700 px-2 py-1 rounded">Windows Server</span>
+                                </div>
+                                <div class="mt-4 flex items-center justify-between proj-card-footer">
+                                    <div class="flex items-center text-sm text-gray-400">
+                                        <i data-feather="folder" class="w-4 h-4 mr-2"></i>
+                                        <span>AD Management</span>
+                                    </div>
+                                    <button onclick="openProjectModal()" class="btn-blue-pill">
+                                        <i data-feather="eye"></i> View details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg overflow-hidden border border-gray-700 hover:border-blue-400 transition-colors">
+                            <div class="w-full h-40 bg-gradient-to-br from-green-600 to-teal-600 flex items-center justify-center">
+                                <i data-feather="settings" class="w-16 h-16 text-white"></i>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-lg font-bold text-blue-400">Services Management Tool</h3>
+                                <p class="text-sm text-gray-300 mt-2">Python GUI for remote service manipulation in Production and Staging environments of Senior's HCM SaaS infrastructure.</p>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span class="text-xs bg-gray-700 px-2 py-1 rounded">Python</span>
+                                    <span class="text-xs bg-gray-700 px-2 py-1 rounded">Ttkbootstrap</span>
+                                    <span class="text-xs bg-gray-700 px-2 py-1 rounded">PowerShell</span>
+                                    <span class="text-xs bg-gray-700 px-2 py-1 rounded">Senior HCM</span>
+                                </div>
+                                <div class="mt-4 flex items-center justify-between proj-card-footer">
+                                    <div class="flex items-center text-sm text-gray-400">
+                                        <i data-feather="server" class="w-4 h-4 mr-2"></i>
+                                        <span>SaaS Management</span>
+                                    </div>
+                                    <button onclick="openServicesModal()" class="btn-green-pill">
+                                        <i data-feather="eye"></i> View details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://github.com/igordriguess?tab=repositories" target="_blank" class="mt-6 btn-blue-pill">
+                        <i data-feather="github"></i> View all projects
+                    </a>
+                </section>
+
+                <section id="publications" class="bg-gray-900 rounded-lg p-6 border border-gray-800 card-hover" data-aos="fade-up">
+                    <div class="flex items-center mb-4 section-title-row">
+                        <h2 class="text-2xl font-bold gradient-text-purple">publications()</h2>
+                        <span class="ml-2 text-gray-500">// Articles and tutorials</span>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-purple-400 transition-colors">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-purple-400 mb-2">Explaining the PowerShell script for managing client-filtered processes</h3>
+                                    <p class="text-sm text-gray-400 mb-3 flex items-center">
+                                        <i data-feather="calendar" class="w-4 h-4 mr-2"></i>
+                                        Sep 13, 2024 · Technical Article
+                                    </p>
+                                    <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                        PowerShell script developed to check and terminate processes remotely in HCM environments,
+                                        allowing operator interaction and ensuring that only specific client processes are affected.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="text-xs bg-blue-600 px-2 py-1 rounded">PowerShell</span>
+                                        <span class="text-xs bg-green-600 px-2 py-1 rounded">HCM</span>
+                                        <span class="text-xs bg-purple-600 px-2 py-1 rounded">Automation</span>
+                                        <span class="text-xs bg-orange-600 px-2 py-1 rounded">Processes</span>
+                                    </div>
+                                </div>
+                                <div class="ml-4 flex items-center publication-icon">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
+                                        <i data-feather="terminal" class="w-8 h-8 text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between mt-4 pub-card-footer">
+                                <div class="flex items-center text-sm text-gray-400">
+                                    <i data-feather="code" class="w-4 h-4 mr-2"></i>
+                                    <span>PowerShell Script</span>
+                                </div>
+                                <button onclick="openArticleModal()" class="btn-purple-pill">
+                                    <i data-feather="book-open"></i> Read article
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-cyan-400 transition-colors">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-cyan-400 mb-2">Inside the script for correcting shares in the cloud environment</h3>
+                                    <p class="text-sm text-gray-400 mb-3 flex items-center">
+                                        <i data-feather="calendar" class="w-4 h-4 mr-2"></i>
+                                        Sep 11, 2024 · Technical Article
+                                    </p>
+                                    <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                        Robust PowerShell script to manage folder shares across multiple production servers,
+                                        optimizing administration and ensuring that important folders are properly shared.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="text-xs bg-blue-600 px-2 py-1 rounded">PowerShell</span>
+                                        <span class="text-xs bg-cyan-600 px-2 py-1 rounded">Shares</span>
+                                        <span class="text-xs bg-green-600 px-2 py-1 rounded">Servers</span>
+                                        <span class="text-xs bg-purple-600 px-2 py-1 rounded">NTFS</span>
+                                    </div>
+                                </div>
+                                <div class="ml-4 flex items-center publication-icon">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-cyan-600 to-blue-600 rounded-lg flex items-center justify-center">
+                                        <i data-feather="share-2" class="w-8 h-8 text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between mt-4 pub-card-footer">
+                                <div class="flex items-center text-sm text-gray-400">
+                                    <i data-feather="code" class="w-4 h-4 mr-2"></i>
+                                    <span>PowerShell Script</span>
+                                </div>
+                                <button onclick="openSharesModal()" class="btn-cyan-pill">
+                                    <i data-feather="book-open"></i> Read article
+                                </button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </section>
+
+                <section id="resume" class="bg-gray-900 rounded-lg p-6 border border-gray-800 card-hover" data-aos="fade-up">
+                    <div class="flex items-center mb-4 section-title-row">
+                        <h2 class="text-2xl font-bold gradient-text">resume()</h2>
+                        <span class="ml-2 text-gray-500">// Professional experience</span>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="flex flex-col lg:flex-row gap-6">
+                            <div class="lg:w-2/3">
+                                <div class="bg-gray-800 rounded-lg p-4 border border-gray-700">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h3 class="text-lg font-bold text-blue-400">Full Resume</h3>
+                                        <div class="flex gap-2 resume-header-btns">
+                                            <a href="Igor Rodrigues - EN.pdf" download class="px-3 py-2 bg-blue-600 hover:bg-blue-700 rounded text-white text-sm flex items-center">
+                                                <i data-feather="download" class="mr-2 w-4 h-4"></i> Download PDF
+                                            </a>
+                                            <button onclick="toggleFullscreen()" class="px-3 py-2 bg-gray-600 hover:bg-gray-700 rounded text-white text-sm flex items-center">
+                                                <i data-feather="maximize" class="mr-2 w-4 h-4"></i> Fullscreen
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="relative pdf-embed-wrapper">
+                                        <embed id="pdf-viewer" src="Igor Rodrigues - EN.pdf" type="application/pdf" class="w-full h-96 lg:h-[600px] rounded border border-gray-600">
+                                    </div>
+                                    <!-- Mobile fallback: embed doesn't render on phones -->
+                                    <div class="pdf-mobile-card hidden flex-col items-center justify-center gap-5 py-10 px-6 bg-gray-700/20 rounded-lg border border-dashed border-gray-600 text-center mt-2">
+                                        <div class="w-20 h-20 bg-blue-600/15 border border-blue-500/30 rounded-full flex items-center justify-center">
+                                            <i data-feather="file-text" class="w-9 h-9 text-blue-400"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-gray-200 font-semibold text-base mb-1">Igor Rodrigues — EN Resume</p>
+                                        </div>
+                                        <a href="Igor Rodrigues - EN.pdf" download class="btn-primary">
+                                            <i data-feather="download"></i> Download PDF
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:w-1/3">
+                                <div class="bg-gray-800 rounded-lg p-4 border border-gray-700 h-fit">
+                                    <h3 class="text-lg font-bold text-blue-400 mb-4">Summary</h3>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <h4 class="text-blue-300 font-semibold">Experience</h4>
+                                            <p class="text-gray-300 text-sm">8+ years in Multicloud Architecture and Software Engineering</p>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-green-300 font-semibold">Current Role</h4>
+                                            <p class="text-gray-300 text-sm">Cloud Solutions Architect</p>
+                                            <p class="text-gray-400 text-xs">CCM Soluções em Tecnologia LTDA</p>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-purple-300 font-semibold">Education</h4>
+                                            <p class="text-gray-300 text-sm">Computer Science</p>
+                                            <p class="text-gray-400 text-xs">Centro Universitário Moura Lacerda</p>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-yellow-300 font-semibold">Certifications</h4>
+                                            <ul class="text-gray-300 text-sm space-y-1">
+                                                <li>• OCI Developer Professional</li>
+                                                <li>• OCI Migration Architect Professional</li>
+                                                <li>• OCI Architect Associate</li>
+                                                <li>• Microsoft Azure AZ-900</li>
+                                                <li>• ITIL 4 Foundations</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-red-300 font-semibold">Specialties</h4>
+                                            <ul class="text-gray-300 text-sm space-y-1">
+                                                <li>• Multicloud Architecture</li>
+                                                <li>• Software Engineering</li>
+                                                <li>• Observability</li>
+                                                <li>• DevOps & Automation</li>
+                                                <li>• Infrastructure as Code</li>
+                                                <li>• FinOps</li>
+                                                <li>• Cloud Security</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div id="projectModal" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden">
+        <div class="bg-gray-900 rounded-xl border border-gray-700 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+                <div class="sticky top-0 bg-gray-900 border-b border-gray-700 p-6 flex items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-700 rounded-lg flex items-center justify-center mr-4">
+                            <i data-feather="users" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-blue-400">Active Directory Management Tool</h2>
+                            <p class="text-gray-400">Automating User Management with PowerShell</p>
+                        </div>
+                    </div>
+                    <button onclick="closeProjectModal()" class="text-gray-400 hover:text-white">
+                        <i data-feather="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+
+                <div class="p-6 space-y-6">
+                    <div class="bg-gray-800 rounded-lg p-6 border-l-4 border-blue-400">
+                        <h3 class="text-xl font-bold text-blue-400 mb-4">About the Project</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            Managing users in Active Directory (AD) can be a repetitive and error-prone task when done manually. 
+                            With this in mind, I developed a PowerShell script to simplify and automate the most common AD operations,
+                            ensuring efficiency and standardization in management.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-green-400 mb-4">Script Features</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-green-400 pl-4">
+                                <h4 class="font-bold text-green-400">Permission Check</h4>
+                                <p class="text-gray-300 text-sm mt-1">The script checks if it's being run with administrator privileges and automatically restarts with the necessary permissions.</p>
+                            </div>
+
+                            <div class="border-l-4 border-blue-400 pl-4">
+                                <h4 class="font-bold text-blue-400">Active Directory Integration</h4>
+                                <p class="text-gray-300 text-sm mt-1">It verifies if the Active Directory module is installed before proceeding and connects to the specified domain.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-purple-400 mb-4">Available Operations</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-bold text-yellow-400">Query User</h4>
+                                <p class="text-gray-300 text-sm mt-1">Searches for users by first name and displays complete information such as name, login, email, status, and groups.</p>
+                            </div>
+
+                            <div class="bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-bold text-yellow-400">List Users</h4>
+                                <p class="text-gray-300 text-sm mt-1">Displays all AD users, filtering out default accounts like administrator and guest.</p>
+                            </div>
+
+                            <div class="bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-bold text-yellow-400">Create User</h4>
+                                <p class="text-gray-300 text-sm mt-1">Creates new users with custom information, sets passwords, job titles, and adds them to specified groups.</p>
+                            </div>
+
+                            <div class="bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-bold text-yellow-400">Remove User</h4>
+                                <p class="text-gray-300 text-sm mt-1">Safely deletes users from AD.</p>
+                            </div>
+
+                            <div class="bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-bold text-yellow-400">Reset Password</h4>
+                                <p class="text-gray-300 text-sm mt-1">Resets passwords with options to require a change on next login and configure expiration.</p>
+                            </div>
+
+                            <div class="bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-bold text-yellow-400">Manage Groups</h4>
+                                <p class="text-gray-300 text-sm mt-1">Efficiently adds or removes users from AD groups.</p>
+                            </div>
+
+                            <div class="bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-bold text-yellow-400">Enable/Disable</h4>
+                                <p class="text-gray-300 text-sm mt-1">Quickly enables or disables user accounts.</p>
+                            </div>
+
+                            <div class="bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-bold text-yellow-400">Intuitive Interface</h4>
+                                <p class="text-gray-300 text-sm mt-1">An interactive menu that guides the administrator with visual feedback for each action.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-orange-400 mb-4">Technical Highlights</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                                    <i data-feather="shield" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <h4 class="font-bold text-red-400">Security</h4>
+                                <p class="text-gray-300 text-sm">Use of SecureString for safe password handling</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                                    <i data-feather="zap" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <h4 class="font-bold text-green-400">Efficiency</h4>
+                                <p class="text-gray-300 text-sm">Automation reduces human errors and increases productivity</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                                    <i data-feather="settings" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <h4 class="font-bold text-purple-400">Flexibility</h4>
+                                <p class="text-gray-300 text-sm">Customizable for different domains and structures</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-lg p-6 border-l-4 border-green-400">
+                        <h3 class="text-xl font-bold text-green-400 mb-4">Why use this script?</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <h4 class="font-bold text-blue-400">Time Savings</h4>
+                                <p class="text-gray-300 text-sm">Automates recurring manual tasks</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-400">Consistency</h4>
+                                <p class="text-gray-300 text-sm">Ensures a standard across all operations</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-400">Security</h4>
+                                <p class="text-gray-300 text-sm">Minimizes risks of manual manipulation</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-blue-400 mb-4">Technologies Used</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-sm">PowerShell</span>
+                            <span class="px-3 py-1 bg-green-600 text-white rounded-full text-sm">Active Directory</span>
+                            <span class="px-3 py-1 bg-purple-600 text-white rounded-full text-sm">Windows Server</span>
+                            <span class="px-3 py-1 bg-orange-600 text-white rounded-full text-sm">SecureString</span>
+                            <span class="px-3 py-1 bg-red-600 text-white rounded-full text-sm">Domain Services</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-6 text-center">
+                        <h3 class="text-xl font-bold text-white mb-4">Interested in the project?</h3>
+                        <p class="text-gray-100 mb-4">Contact me to get access to the full code!</p>
+                        <div class="flex justify-center items-center space-x-4">
+                            <a href="tel:+5516991584347" class="flex items-center bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg text-white transition-colors">
+                                <i data-feather="phone" class="w-5 h-5 mr-2"></i>
+                                +55 16 99158-4347
+                            </a>
+                            <a href="https://linkedin.com/in/igordriguess" target="_blank" class="flex items-center bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg text-white transition-colors">
+                                <i data-feather="linkedin" class="w-5 h-5 mr-2"></i>
+                                LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <div id="servicesModal" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden">
+        <div class="bg-gray-900 rounded-xl border border-gray-700 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+                <div class="sticky top-0 bg-gray-900 border-b border-gray-700 p-6 flex items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-600 to-teal-600 rounded-lg flex items-center justify-center mr-4">
+                            <i data-feather="settings" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-green-400">Services Management Tool</h2>
+                            <p class="text-gray-400">GUI for Remote Service Manipulation</p>
+                        </div>
+                    </div>
+                    <button onclick="closeServicesModal()" class="text-gray-400 hover:text-white">
+                        <i data-feather="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+
+                <div class="p-6 space-y-6">
+                    <div class="bg-gray-800 rounded-lg p-6 border-l-4 border-green-400">
+                        <h3 class="text-xl font-bold text-green-400 mb-4">About the Project</h3>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            This project consists of a graphical user interface (GUI) developed in Python, using the Ttkbootstrap library,
+                            for remote manipulation of services in Production and Staging environments of a Senior HCM SaaS infrastructure.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            The tool allows querying, starting, and stopping services associated with a specific client,
+                            simplifying service management across multiple servers.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-blue-400 mb-4">Key Features</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-4">
+                                <div class="border-l-4 border-blue-400 pl-4">
+                                    <h4 class="font-bold text-blue-400">Remote Service Query</h4>
+                                    <p class="text-gray-300 text-sm mt-1">
+                                        The application performs remote queries to check the status of services using PowerShell commands
+                                        via the subprocess function, presenting the results in an interactive table.
+                                    </p>
+                                </div>
+
+                                <div class="border-l-4 border-green-400 pl-4">
+                                    <h4 class="font-bold text-green-400">Differentiated Environments</h4>
+                                    <p class="text-gray-300 text-sm mt-1">
+                                        The user can select whether to perform the operation in the Production or Staging environment,
+                                        ensuring greater control over the environments.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="border-l-4 border-purple-400 pl-4">
+                                    <h4 class="font-bold text-purple-400">Service Filtering</h4>
+                                    <p class="text-gray-300 text-sm mt-1">
+                                        The interface has a filtering system where the real service names are masked with descriptive names.
+                                        Ex: "seniorinst" is presented as "Senior Installation Information Service".
+                                    </p>
+                                </div>
+
+                                <div class="border-l-4 border-orange-400 pl-4">
+                                    <h4 class="font-bold text-orange-400">Service Manipulation</h4>
+                                    <p class="text-gray-300 text-sm mt-1">
+                                        The user can select specific services or choose to manipulate all services at once.
+                                        From this selection, they can start or stop services directly from the interface.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-purple-400 mb-4">Technologies Used</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-bold text-yellow-400">Python 3</h4>
+                                <p class="text-gray-300 text-sm mt-1">The main language used in the project for application development.</p>
+                            </div>
+
+                            <div class="bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-bold text-yellow-400">Ttkbootstrap</h4>
+                                <p class="text-gray-300 text-sm mt-1">A native Python library for creating modern graphical interfaces.</p>
+                            </div>
+
+                            <div class="bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-bold text-yellow-400">Subprocess</h4>
+                                <p class="text-gray-300 text-sm mt-1">Module used to execute PowerShell commands remotely.</p>
+                            </div>
+
+                            <div class="bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-bold text-yellow-400">PowerShell</h4>
+                                <p class="text-gray-300 text-sm mt-1">Scripting language for performing queries and operations on remote servers.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-teal-400 mb-4">User Interface</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-gradient-to-br from-blue-600 to-blue-700 p-4 rounded-lg text-center">
+                                <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                    <i data-feather="mouse-pointer" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <h4 class="font-bold text-white">Control Buttons</h4>
+                                <p class="text-blue-100 text-sm mt-1">Query, start, or stop services via intuitive buttons</p>
+                            </div>
+
+                            <div class="bg-gradient-to-br from-green-600 to-green-700 p-4 rounded-lg text-center">
+                                <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                    <i data-feather="grid" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <h4 class="font-bold text-white">Dynamic Table</h4>
+                                <p class="text-green-100 text-sm mt-1">Presents results with service name (masked) and current state</p>
+                            </div>
+
+                            <div class="bg-gradient-to-br from-purple-600 to-purple-700 p-4 rounded-lg text-center">
+                                <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                    <i data-feather="list" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <h4 class="font-bold text-white">Interactive Combobox</h4>
+                                <p class="text-purple-100 text-sm mt-1">Select a specific service or all services for an operation</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-orange-400 mb-4">Script Logic</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-gray-700 p-4 rounded-lg border-l-4 border-blue-400">
+                                <h4 class="font-bold text-blue-400 mb-2">Query Services</h4>
+                                <p class="text-gray-300 text-sm">
+                                    Using the "Query Services" button, the application collects active services on the remote server,
+                                    applying filters for the selected client and environment. The PowerShell command is executed remotely,
+                                    and the results are displayed in the table.
+                                </p>
+                            </div>
+
+                            <div class="bg-gray-700 p-4 rounded-lg border-l-4 border-green-400">
+                                <h4 class="font-bold text-green-400 mb-2">Start/Stop Services</h4>
+                                <p class="text-gray-300 text-sm">
+                                    The user can start or stop services individually or in bulk. To do this, they choose the desired service
+                                    from the combobox and click "Start Service(s)" or "Stop Service(s)", triggering the PowerShell command
+                                    that performs the action on the remote server.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-teal-600 to-cyan-600 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">Use Case Example</h3>
+                        
+                        <div class="bg-white bg-opacity-10 rounded-lg p-4 space-y-3">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-6 h-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center mt-0.5">
+                                    <span class="text-white text-sm font-bold">1</span>
+                                </div>
+                                <p class="text-white text-sm">
+                                    The administrator wants to verify if all services for a specific client are running
+                                    in the Production or Staging environment.
+                                </p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-6 h-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center mt-0.5">
+                                    <span class="text-white text-sm font-bold">2</span>
+                                </div>
+                                <p class="text-white text-sm">
+                                    They select the "Production" environment, query the services, and see the status in the table.
+                                </p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-6 h-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center mt-0.5">
+                                    <span class="text-white text-sm font-bold">3</span>
+                                </div>
+                                <p class="text-white text-sm">
+                                    If any service is stopped, they can start it directly from the interface.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-blue-400 mb-4">Tech Stack</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-sm">Python 3</span>
+                            <span class="px-3 py-1 bg-green-600 text-white rounded-full text-sm">Ttkbootstrap</span>
+                            <span class="px-3 py-1 bg-purple-600 text-white rounded-full text-sm">Subprocess</span>
+                            <span class="px-3 py-1 bg-orange-600 text-white rounded-full text-sm">PowerShell</span>
+                            <span class="px-3 py-1 bg-teal-600 text-white rounded-full text-sm">Senior HCM</span>
+                            <span class="px-3 py-1 bg-red-600 text-white rounded-full text-sm">SaaS</span>
+                            <span class="px-3 py-1 bg-indigo-600 text-white rounded-full text-sm">GUI</span>
+                            <span class="px-3 py-1 bg-pink-600 text-white rounded-full text-sm">Remote Management</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-green-600 to-teal-600 rounded-lg p-6 text-center">
+                        <h3 class="text-xl font-bold text-white mb-4">Interested in the project?</h3>
+                        <p class="text-gray-100 mb-4">Contact me to get access to the full code!</p>
+                        <div class="flex justify-center items-center space-x-4">
+                            <a href="tel:+5516991584347" class="flex items-center bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg text-white transition-colors">
+                                <i data-feather="phone" class="w-5 h-5 mr-2"></i>
+                                +55 16 99158-4347
+                            </a>
+                            <a href="https://linkedin.com/in/igordriguess" target="_blank" class="flex items-center bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg text-white transition-colors">
+                                <i data-feather="linkedin" class="w-5 h-5 mr-2"></i>
+                                LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <div id="articleModal" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden">
+        <div class="bg-gray-900 rounded-xl border border-gray-700 max-w-5xl w-full max-h-[90vh] overflow-y-auto">
+                <div class="sticky top-0 bg-gray-900 border-b border-gray-700 p-6 flex items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center mr-4">
+                            <i data-feather="terminal" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-purple-400">PowerShell Script for Process Management</h2>
+                            <p class="text-gray-400">Sep 13, 2024 · Technical Article</p>
+                        </div>
+                    </div>
+                    <button onclick="closeArticleModal()" class="text-gray-400 hover:text-white">
+                        <i data-feather="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+
+                <div class="p-6 space-y-6">
+                    <div class="bg-gray-800 rounded-lg p-6 border-l-4 border-purple-400">
+                        <h3 class="text-xl font-bold text-purple-400 mb-4">Introduction</h3>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            In the context of HCM systems administration, managing processes remotely is a critical task to ensure
+                            the smooth operation of client environments. One of the challenges is monitoring and terminating running processes
+                            efficiently, without negatively impacting service operations.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            This PowerShell script was developed to perform remote verification and termination of processes,
+                            allowing operator interaction and ensuring that only specific client processes are affected.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-blue-400 mb-4">Script Features</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-4">
+                                <div class="bg-gray-700 p-4 rounded-lg border-l-4 border-blue-400">
+                                    <h4 class="font-bold text-blue-400 mb-2">Operator Interaction</h4>
+                                    <p class="text-gray-300 text-sm">
+                                        The script prompts the user for important information, such as the remote server name,
+                                        the client name, and the environment type (production or staging), making it flexible
+                                        for different scenarios.
+                                    </p>
+                                </div>
+
+                                <div class="bg-gray-700 p-4 rounded-lg border-l-4 border-green-400">
+                                    <h4 class="font-bold text-green-400 mb-2">Remote Query</h4>
+                                    <p class="text-gray-300 text-sm">
+                                        Using the Invoke-Command, the script queries the remote server to identify
+                                        running processes related to the client. The applied logic filters processes
+                                        by the path where they are running, ensuring accurate identification.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="bg-gray-700 p-4 rounded-lg border-l-4 border-red-400">
+                                    <h4 class="font-bold text-red-400 mb-2">Safe Termination</h4>
+                                    <p class="text-gray-300 text-sm">
+                                        After listing the running processes, the operator can choose to terminate one or more processes.
+                                        This is done in a controlled manner, where the process ID is provided by the user and the
+                                        termination is performed remotely using the Stop-Process command.
+                                    </p>
+                                </div>
+
+                                <div class="bg-gray-700 p-4 rounded-lg border-l-4 border-yellow-400">
+                                    <h4 class="font-bold text-yellow-400 mb-2">Flow Control</h4>
+                                    <p class="text-gray-300 text-sm">
+                                        The script runs continuously, allowing the operator to perform multiple checks and terminations
+                                        without having to restart it manually. After each cycle, the operator can choose whether to
+                                        restart the script or exit.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-green-400 mb-4">Execution Flow</h3>
+                        
+                        <div class="space-y-3">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+                                <p class="text-gray-300 text-sm pt-1">The user enters the remote server name and the client name.</p>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+                                <p class="text-gray-300 text-sm pt-1">The script queries if there are any running processes for the client on the remote server.</p>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+                                <p class="text-gray-300 text-sm pt-1">If processes are found, they are listed for the operator.</p>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">4</div>
+                                <p class="text-gray-300 text-sm pt-1">The operator can choose to terminate processes individually by providing the process ID.</p>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">5</div>
+                                <p class="text-gray-300 text-sm pt-1">The script asks if the operator wants to continue or terminate more processes.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-orange-400 mb-4">Benefits</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-gradient-to-br from-green-600 to-green-700 p-4 rounded-lg text-center">
+                                <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                    <i data-feather="zap" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <h4 class="font-bold text-white">Automation and Efficiency</h4>
+                                <p class="text-green-100 text-sm mt-1">Reduces the need for manual interventions and automates the search for client-related processes</p>
+                            </div>
+
+                            <div class="bg-gradient-to-br from-blue-600 to-blue-700 p-4 rounded-lg text-center">
+                                <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                    <i data-feather="settings" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <h4 class="font-bold text-white">Flexibility</h4>
+                                <p class="text-blue-100 text-sm mt-1">Can be quickly adapted for different environments (production or staging) and different clients</p>
+                            </div>
+
+                            <div class="bg-gradient-to-br from-purple-600 to-purple-700 p-4 rounded-lg text-center">
+                                <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                    <i data-feather="user-check" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <h4 class="font-bold text-white">User-Friendly Interaction</h4>
+                                <p class="text-purple-100 text-sm mt-1">The operator interface is simple and clear, making it easy for system administrators to use</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-4">Full Code</h3>
+                        <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+                            <pre class="text-sm text-gray-300 whitespace-pre-wrap"><code># This is the original PowerShell code, left untranslated as it is a code block.
+While ($true) {
+    Clear-Host;
+    Write-Host "Mega Cloud HCM - Checks running processes by client..." -ForegroundColor Green
+
+    Write-Host "Enter the remote server name:" -ForegroundColor Cyan
+    $computerName = Read-Host
+
+    # CLIENT DEFINITION
+    Write-Host "What is the client's name?" -ForegroundColor Cyan
+    $nomeCli = Read-Host
+
+    Write-Host "Do you know the client's HCM code? (Y)Yes, (N)No" -ForegroundColor Cyan
+    $codCliQ = Read-Host;
+
+    if ($codCliQ -eq "N") {
+        # If the client code is not known
+        Invoke-Command -ComputerName $computerName -ScriptBlock {
+            param($nomeCli)
+            Get-WMIObject win32_service | Where-Object { $_.pathname -like "*$nomeCli*" -and $_.name -like "*SeniorInstInfoService*" } | Format-Table -AutoSize PSComputerName, Name, State, PathName
+        } -ArgumentList $nomeCli
+
+        Write-Host "Enter the client code:" -ForegroundColor Cyan
+        $codCli = Read-Host
+    } else {
+        Write-Host "Confirm the code..." -ForegroundColor Cyan
+        $codCli = Read-Host
+    }
+
+    Write-Host "What is the environment type? (p)Production, (h)Staging" -ForegroundColor Cyan
+    $tipAmb = Read-Host
+    $cliente = "$nomeCli" + "_" + "$codCli" + "_" + "$tipAmb"
+
+    Write-Host "Querying processes..." -ForegroundColor Cyan
+    
+$nenhumProcesso = $false
+
+# QUERY RUNNING PROCESSES
+Invoke-Command -ComputerName $computerName -ScriptBlock {
+    param($cliente)
+
+    # Store processes in a variable
+    $processos = Get-Process -Name * | Where-Object { $_.path -like "*$cliente*" }
+
+    # Check if the process list is empty
+    if ($processos) {
+        # If there are processes, display them in a table format
+        $processos | Format-Table -AutoSize ID, ProcessName, Path
+    } else {
+        # Otherwise, display the message and set a flag to skip termination
+        Write-Host "No processes found for client $cliente" -ForegroundColor Yellow
+        return $true
+    }
+
+} -ArgumentList $cliente -OutVariable resultado
+
+    $nenhumProcesso = $resultado
+
+# Check if no process was found
+if ($nenhumProcesso -eq $true) {
+    # Skip termination and go directly to the repeat loop
+    Write-Host "Do you want to restart the script? Yes(Y) No(N)" -ForegroundColor Cyan
+    $restartScript = Read-Host
+    if ($restartScript -eq "Y") {
+        continue
+    } else {
+        break
+    }
+}
+
+# If processes were found, continue the flow to terminate processes
+Write-Host "Do you want to terminate any process? (Y)Yes, (N)No" -ForegroundColor Cyan
+$processo = Read-Host
+
+if ($processo -eq "Y") {
+    do {
+        Write-Host "Enter the ID of the process you want to terminate" -ForegroundColor Cyan
+        $comando = Read-Host
+
+        # TERMINATE THE DESIRED PROCESS
+        Invoke-Command -ComputerName $computerName -ScriptBlock {
+            param($comando)
+            Get-Process | Where-Object { $_.id -eq $comando } | Stop-Process -Force
+        } -ArgumentList $comando
+
+        Write-Host "Process terminated successfully!!" -ForegroundColor Cyan
+
+        # Display remaining processes
+        Invoke-Command -ComputerName $computerName -ScriptBlock {
+            param($cliente)
+            Get-Process -Name * | Where-Object { $_.path -like "*$cliente*" } | Format-Table -AutoSize ID, ProcessName, Path
+        } -ArgumentList $cliente
+
+        # Ask if you want to terminate more processes
+        Write-Host "Do you want to terminate more processes? (Y)Yes, (N)No" -ForegroundColor Cyan
+        $maisProcessos = Read-Host
+
+    } while ($maisProcessos -eq "Y")
+}
+
+# REPEAT LOOP
+Write-Host "Do you want to restart the script? Yes(Y) No(N)" -ForegroundColor Cyan
+$restartScript = Read-Host
+if ($restartScript -eq "Y") {
+    continue
+} else {
+    break
+}
+
+}
+
+Exit</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg p-6 text-center">
+                        <h3 class="text-xl font-bold text-white mb-4">Conclusion</h3>
+                        <p class="text-gray-100 mb-4">
+                            PowerShell automation is an excellent tool for ensuring control and monitoring
+                            of processes in corporate environments, providing more security and efficiency to the IT team.
+                        </p>
+                        <p class="text-gray-100">
+                            This script offers a powerful and automated solution for managing remote processes in HCM environments,
+                            contributing to the stability and efficiency of the services provided.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-blue-400 mb-4">Tags</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-sm">PowerShell</span>
+                            <span class="px-3 py-1 bg-green-600 text-white rounded-full text-sm">HCM</span>
+                            <span class="px-3 py-1 bg-purple-600 text-white rounded-full text-sm">Automation</span>
+                            <span class="px-3 py-1 bg-orange-600 text-white rounded-full text-sm">Processes</span>
+                            <span class="px-3 py-1 bg-red-600 text-white rounded-full text-sm">Remote Management</span>
+                            <span class="px-3 py-1 bg-teal-600 text-white rounded-full text-sm">Windows Server</span>
+                            <span class="px-3 py-1 bg-indigo-600 text-white rounded-full text-sm">System Administration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <div id="sharesModal" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden">
+        <div class="bg-gray-900 rounded-xl border border-gray-700 max-w-5xl w-full max-h-[90vh] overflow-y-auto">
+                <div class="sticky top-0 bg-gray-900 border-b border-gray-700 p-6 flex items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-cyan-600 to-blue-600 rounded-lg flex items-center justify-center mr-4">
+                            <i data-feather="share-2" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-cyan-400">Share Correction Script</h2>
+                            <p class="text-gray-400">Sep 11, 2024 · Technical Article</p>
+                        </div>
+                    </div>
+                    <button onclick="closeSharesModal()" class="text-gray-400 hover:text-white">
+                        <i data-feather="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+
+                <div class="p-6 space-y-6">
+                    <div class="bg-gray-800 rounded-lg p-6 border-l-4 border-cyan-400">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-4">Project Goal</h3>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            In my recent project, I developed a robust PowerShell script to manage folder shares across multiple
+                            production servers, aiming to optimize administration and ensure that important folders were properly shared.
+                        </p>
+                        <div class="bg-cyan-900 bg-opacity-30 rounded-lg p-4 border border-cyan-600">
+                            <p class="text-cyan-100 font-semibold">
+                                <i data-feather="target" class="w-5 h-5 inline mr-2"></i>
+                                To ensure that all production folders on specific servers are adequately shared
+                                and that non-existent shares are created as needed.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-green-400 mb-4">What the script does</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-blue-400">
+                                <h4 class="font-bold text-blue-400 mb-3 flex items-center">
+                                    <i data-feather="search" class="w-5 h-5 mr-2"></i>
+                                    Query and Filtering
+                                </h4>
+                                <p class="text-gray-300 text-sm mb-3">
+                                    The script connects to remote servers and gets a list of folders in the D:\ path that meet specific criteria.
+                                </p>
+                                <div class="bg-gray-800 rounded p-3">
+                                    <p class="text-cyan-300 text-sm font-mono">
+                                        <strong>Servers:</strong> OCSENAPLH01, OCSENAPL01, OCSENAPL02, OCSENAPL03, OCSENAPL04
+                                    </p>
+                                    <p class="text-cyan-300 text-sm font-mono mt-1">
+                                        <strong>Criteria:</strong> Names containing "_p" and excluding "OLD" and "Test"
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-green-400">
+                                <h4 class="font-bold text-green-400 mb-3 flex items-center">
+                                    <i data-feather="check-circle" class="w-5 h-5 mr-2"></i>
+                                    Share Verification
+                                </h4>
+                                <p class="text-gray-300 text-sm">
+                                    For each folder, it checks if a corresponding share already exists.
+                                    If there is no existing share, the script creates a new one.
+                                </p>
+                            </div>
+
+                            <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-purple-400">
+                                <h4 class="font-bold text-purple-400 mb-3 flex items-center">
+                                    <i data-feather="shield" class="w-5 h-5 mr-2"></i>
+                                    Permission Configuration
+                                </h4>
+                                <p class="text-gray-300 text-sm mb-3">
+                                    The script collects the current permissions of each folder and classifies user groups according to defined rules.
+                                </p>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mt-3">
+                                    <span class="bg-red-600 text-white px-2 py-1 rounded text-xs text-center">HR</span>
+                                    <span class="bg-blue-600 text-white px-2 py-1 rounded text-xs text-center">HCM</span>
+                                    <span class="bg-green-600 text-white px-2 py-1 rounded text-xs text-center">Compliance</span>
+                                    <span class="bg-purple-600 text-white px-2 py-1 rounded text-xs text-center">Sapiens</span>
+                                </div>
+                                <p class="text-gray-400 text-xs mt-2">
+                                    Maintains existing NTFS permissions while creating new shares
+                                </p>
+                            </div>
+
+                            <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-yellow-400">
+                                <h4 class="font-bold text-yellow-400 mb-3 flex items-center">
+                                    <i data-feather="repeat" class="w-5 h-5 mr-2"></i>
+                                    Interface and Repetition
+                                </h4>
+                                <p class="text-gray-300 text-sm">
+                                    After running on all servers, the script offers the option to restart execution,
+                                    allowing for continuous administration as needed.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-orange-400 mb-4">Example Output</h3>
+                        <div class="bg-gray-900 rounded-lg p-4 border border-gray-600">
+                            <div class="space-y-2 font-mono text-sm">
+                                <p class="text-yellow-300">Running query on server OCSENAPL01</p>
+                                <p class="text-green-300">The folder Project_X is shared.</p>
+                                <p class="text-red-300">The folder TestFolder is not shared.</p>
+                                <p class="text-green-300">The folder TestFolder was shared as \\OCSENAPL01\TestFolder$.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-blue-400 mb-4">Benefits</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-gradient-to-br from-green-600 to-emerald-700 p-5 rounded-lg text-center">
+                                <div class="w-14 h-14 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                    <i data-feather="zap" class="w-7 h-7 text-white"></i>
+                                </div>
+                                <h4 class="font-bold text-white mb-2">Automation</h4>
+                                <p class="text-green-100 text-sm">Reduction of manual work and human errors by ensuring all necessary folders are shared correctly</p>
+                            </div>
+
+                            <div class="bg-gradient-to-br from-blue-600 to-indigo-700 p-5 rounded-lg text-center">
+                                <div class="w-14 h-14 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                    <i data-feather="trending-up" class="w-7 h-7 text-white"></i>
+                                </div>
+                                <h4 class="font-bold text-white mb-2">Efficiency</h4>
+                                <p class="text-blue-100 text-sm">The ability to manage multiple servers simultaneously and consistently</p>
+                            </div>
+
+                            <div class="bg-gradient-to-br from-purple-600 to-pink-700 p-5 rounded-lg text-center">
+                                <div class="w-14 h-14 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                    <i data-feather="settings" class="w-7 h-7 text-white"></i>
+                                </div>
+                                <h4 class="font-bold text-white mb-2">Flexibility</h4>
+                                <p class="text-purple-100 text-sm">Ease of adjusting filtering criteria and permission groups according to future needs</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-yellow-400 mb-4">Main Code Structure</h3>
+                        <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+                            <pre class="text-sm text-gray-300 whitespace-pre-wrap"><code># This is the original PowerShell code, left untranslated as it is a code block.
+# Main loop for all servers
+while ($true) {
+    Clear-Host
+    Write-Host "Script to query and correct HCM PRODUCTION shares" -ForegroundColor Green
+
+    # For each server (OCSENAPLH01, OCSENAPL01-04)
+    $nomeServidor = "SERVER_NAME"
+    
+    # Get folders that meet the criteria
+    $listaPastas = Invoke-Command -ComputerName $nomeServidor -ScriptBlock {
+        Get-ChildItem -Path D:\* -Directory | Where-Object {
+            $_.Name -like "*_p*" -and $_.Name -notlike "*OLD*" -and $_.Name -notlike "*Test*"
+        }
+    }
+    
+    # Get existing shares
+    $compartilhamentos = Get-WmiObject -ComputerName $nomeServidor -Class Win32_Share | Where-Object {
+        $_.Path -like "D:\*" # ... more filters
+    }
+    
+    # For each folder found
+    foreach ($pasta in $listaPastas) {
+        $pastaCompartilhada = $false
+        
+        # Check if it's already shared
+        foreach ($compartilhamento in $compartilhamentos) {
+            if ($pasta.FullName -eq $compartilhamento.Path) {
+                $pastaCompartilhada = $true
+                break
+            }
+        }
+        
+        # If not shared, create the share
+        if (-not $pastaCompartilhada) {
+            # Get current permissions
+            $acl = Invoke-Command -ComputerName $nomeServidor -ScriptBlock {
+                param ($pasta)
+                $acl = Get-Acl -Path $pasta.FullName
+                # Filter specific groups (_HCM_, _RH_, _COMPLIANCE_, _SAPIENS_)
+                $filteredGroups = $acl.Access | Where-Object { 
+                    $_.IdentityReference -match "_HCM_|_RH_|_COMPLIANCE_|_SAPIENS_"
+                } | Select-Object -ExpandProperty IdentityReference
+                return $filteredGroups
+            } -ArgumentList $pasta
+            
+            # Classify groups by type
+            $grupoRH = @()
+            $grupoHCM = @()
+            $grupoCompliance = @()
+            $grupoSapiens = @()
+            
+            foreach ($group in $acl) {
+                if ($group -match "_RH_") { $grupoRH += $group -replace '.*\\(.*?)$', '$1' }
+                elseif ($group -match "_HCM_") { $grupoHCM += $group -replace '.*\\(.*?)$', '$1' }
+                elseif ($group -match "_COMPLIANCE_") { $grupoCompliance += $group -replace '.*\\(.*?)$', '$1' }
+                elseif ($group -match "_SAPIENS_") { $grupoSapiens += $group -replace '.*\\(.*?)$', '$1' }
+            }
+            
+            # Define share permissions
+            $gruposFull = @("MEGACLOUD\CloudOps", "MEGACLOUD\HCM MANAGER")
+            $grupoChangeAccess = @("MEGACLOUD\Resolvedores Cloud") + $grupoRH + $grupoHCM + $grupoCompliance + $grupoSapiens
+            
+            # Create the share
+            $nomeCompartilhamento = $pasta.Name + "$"
+            Invoke-Command -ComputerName $nomeServidor -ScriptBlock {
+                param ($nomeCompartilhamento, $caminhoPasta, $gruposFull, $grupoChangeAccess)
+                New-SmbShare -Name $nomeCompartilhamento -Path $caminhoPasta -FullAccess $gruposFull -ChangeAccess $grupoChangeAccess | Out-Null
+            } -ArgumentList $nomeCompartilhamento, $pasta.FullName, $gruposFull, $grupoChangeAccess
+            
+            Write-Host "The folder $($pasta.Name) was shared as \\$nomeServidor\$nomeCompartilhamento." -ForegroundColor Green
+        }
+    }
+    
+    # Restart option
+    $restartScript = Read-Host -Prompt "Do you want to restart the script? Yes(Y) No(N)"
+    if ($restartScript -ne "Y") { break }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-cyan-600 to-blue-600 rounded-lg p-6 text-center">
+                        <h3 class="text-xl font-bold text-white mb-4">Conclusion</h3>
+                        <p class="text-gray-100 mb-4">
+                            This script is a practical example of applying PowerShell to administer and automate complex administrative tasks,
+                            improving efficiency and accuracy in the production environment.
+                        </p>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4 mt-4">
+                            <p class="text-white text-sm">
+                                <strong>Result:</strong> Automated management of network shares on production servers
+                                with preservation of existing NTFS permissions and proper configuration of access groups.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-blue-400 mb-4">Tags</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-sm">PowerShell</span>
+                            <span class="px-3 py-1 bg-cyan-600 text-white rounded-full text-sm">Shares</span>
+                            <span class="px-3 py-1 bg-green-600 text-white rounded-full text-sm">Servers</span>
+                            <span class="px-3 py-1 bg-purple-600 text-white rounded-full text-sm">NTFS</span>
+                            <span class="px-3 py-1 bg-orange-600 text-white rounded-full text-sm">SMB</span>
+                            <span class="px-3 py-1 bg-red-600 text-white rounded-full text-sm">Automation</span>
+                            <span class="px-3 py-1 bg-indigo-600 text-white rounded-full text-sm">Active Directory</span>
+                            <span class="px-3 py-1 bg-teal-600 text-white rounded-full text-sm">Windows Server</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <footer class="bg-gray-900 border-t border-gray-800 mt-12" role="contentinfo">
+        <div class="container mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center md:text-left">
+                    <h3 class="text-blue-400 font-bold mb-3 flex items-center justify-center md:justify-start">
+                        <i data-feather="code" class="w-5 h-5 mr-2" aria-hidden="true"></i>
+                        Developed by
+                    </h3>
+                    <p class="text-gray-300 text-lg font-semibold">Igor Rodrigues</p>
+                    <p class="text-gray-400 text-sm mt-1">Cloud Solutions Architect</p>
+                </div>
+                
+                <div class="text-center">
+                    <h3 class="text-green-400 font-bold mb-3 flex items-center justify-center">
+                        <i data-feather="layers" class="w-5 h-5 mr-2" aria-hidden="true"></i>
+                        Technologies Used
+                    </h3>
+                    <div class="flex justify-center space-x-2">
+                        <span class="px-2 py-1 bg-gray-800 text-blue-400 rounded text-xs">HTML5</span>
+                        <span class="px-2 py-1 bg-gray-800 text-green-400 rounded text-xs">TailwindCSS</span>
+                        <span class="px-2 py-1 bg-gray-800 text-yellow-400 rounded text-xs">JavaScript</span>
+                    </div>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <h3 class="text-purple-400 font-bold mb-3 flex items-center justify-center md:justify-end">
+                        <i data-feather="info" class="w-5 h-5 mr-2" aria-hidden="true"></i>
+                        About this Portfolio
+                    </h3>
+                    <p class="text-gray-400 text-sm">Design inspired by IDEs</p>
+                    <p class="text-gray-400 text-sm">© 2026 - All rights reserved</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-6 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="flex items-center mb-4 md:mb-0">
+                        <span class="text-gray-500 text-sm code-font">~/portfolio</span>
+                        <span class="text-blue-400 text-sm ml-2">/ igordriguess</span>
+                    </div>
+                    
+                    <nav class="flex space-x-4" aria-label="Social links">
+                        <a href="https://github.com/igordriguess" 
+                           class="text-gray-400 hover:text-blue-400 transition-colors" 
+                           title="GitHub" aria-label="GitHub Profile" target="_blank" rel="noopener noreferrer">
+                            <i data-feather="github" class="w-5 h-5" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/igordriguess" 
+                           class="text-gray-400 hover:text-blue-400 transition-colors" 
+                           title="LinkedIn" aria-label="LinkedIn Profile" target="_blank" rel="noopener noreferrer">
+                            <i data-feather="linkedin" class="w-5 h-5" aria-hidden="true"></i>
+                        </a>
+                        <a href="mailto:igorvprodrigues@gmail.com" 
+                           class="text-gray-400 hover:text-blue-400 transition-colors" 
+                           title="Email" aria-label="Send email">
+                            <i data-feather="mail" class="w-5 h-5" aria-hidden="true"></i>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize libraries
+            AOS.init({ duration: 600, easing: 'ease-out-cubic', once: true, offset: 80 });
+            feather.replace();
+            
+            // ============================================
+            // LANGUAGE SWITCHER
+            // ============================================
+            const languageButtons = document.querySelectorAll('.language-btn');
+            const currentLang = 'en-us'; // Current language of this page
+            
+            // Check if there's a saved language preference
+            const savedLang = localStorage.getItem('preferredLanguage');
+            
+            // If user chose a different language than current, redirect
+            if (savedLang && savedLang !== currentLang) {
+                const targetPage = savedLang === 'en-us' ? 'index-us.html' : 'index.html';
+                window.location.href = targetPage;
+            }
+            
+            // Add event listeners to language buttons
+            languageButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const selectedLang = this.getAttribute('data-lang');
+                    
+                    // Save preference to localStorage
+                    localStorage.setItem('preferredLanguage', selectedLang);
+                    
+                    // Redirect to appropriate page
+                    if (selectedLang === 'en-us') {
+                        window.location.href = 'index-us.html';
+                    } else {
+                        window.location.href = 'index.html';
+                    }
+                });
+            });
+        
+            function toggleFullscreen() {
+                const pdfViewer = document.getElementById('pdf-viewer');
+                if (pdfViewer.requestFullscreen) {
+                    pdfViewer.requestFullscreen();
+                } else if (pdfViewer.webkitRequestFullscreen) {
+                    pdfViewer.webkitRequestFullscreen();
+                } else if (pdfViewer.msRequestFullscreen) {
+                    pdfViewer.msRequestFullscreen();
+                }
+            }
+            
+            // Make functions global for onclick handlers
+            window.toggleFullscreen = toggleFullscreen;
+
+            function openProjectModal() {
+                document.getElementById('projectModal').classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                // Re-initialize feather icons in the modal
+                setTimeout(() => feather.replace(), 100);
+            }
+            window.openProjectModal = openProjectModal;
+
+            function closeProjectModal() {
+                document.getElementById('projectModal').classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+            window.closeProjectModal = closeProjectModal;
+            
+            function openServicesModal() {
+                document.getElementById('servicesModal').classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                // Re-initialize feather icons in the modal
+                setTimeout(() => feather.replace(), 100);
+            }
+            window.openServicesModal = openServicesModal;
+
+            function closeServicesModal() {
+                document.getElementById('servicesModal').classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+            window.closeServicesModal = closeServicesModal;
+            
+            function openArticleModal() {
+                document.getElementById('articleModal').classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                // Re-initialize feather icons in the modal
+                setTimeout(() => feather.replace(), 100);
+            }
+            window.openArticleModal = openArticleModal;
+
+            function closeArticleModal() {
+                document.getElementById('articleModal').classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+            window.closeArticleModal = closeArticleModal;
+            
+            function openSharesModal() {
+                document.getElementById('sharesModal').classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                // Re-initialize feather icons in the modal
+                setTimeout(() => feather.replace(), 100);
+            }
+            window.openSharesModal = openSharesModal;
+
+            function closeSharesModal() {
+                document.getElementById('sharesModal').classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+            window.closeSharesModal = closeSharesModal;
+
+            // Modal event listeners
+            const projectModal = document.getElementById('projectModal');
+            const servicesModal = document.getElementById('servicesModal'); 
+            const articleModal = document.getElementById('articleModal');
+            const sharesModal = document.getElementById('sharesModal');
+
+            // Close modal when clicking outside
+            if (projectModal) {
+                projectModal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeProjectModal();
+                    }
+                });
+            }
+
+            if (servicesModal) {
+                servicesModal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeServicesModal();
+                    }
+                });
+            }
+
+            if (articleModal) {
+                articleModal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeArticleModal();
+                    }
+                });
+            }
+
+            if (sharesModal) {
+                sharesModal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeSharesModal();
+                    }
+                });
+            }
+
+            // Close modal with ESC key (works for all modals)
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeProjectModal();
+                    closeServicesModal();
+                    closeArticleModal();
+                    closeSharesModal();
+                }
+            });
+
+            // Navigation tab functionality
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetSection = this.dataset.tab;
+                    
+                    // Update active tab
+                    document.querySelectorAll('.nav-tab').forEach(t => {
+                        t.classList.remove('active');
+                        t.setAttribute('aria-selected', 'false');
+                    });
+                    this.classList.add('active');
+                    this.setAttribute('aria-selected', 'true');
+                    
+                    // Scroll to section
+                    const targetElement = document.getElementById(targetSection);
+                    if (targetElement) {
+                        const navHeight = document.getElementById('main-nav')?.offsetHeight || 64;
+                        const top = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+                        window.scrollTo({ top, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Update active nav tab on scroll
+            const sections = ['summary', 'projects', 'publications', 'resume'];
+            const navHeight = document.getElementById('main-nav')?.offsetHeight || 64;
+            window.addEventListener('scroll', function() {
+                let current = '';
+                sections.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el && el.getBoundingClientRect().top <= navHeight + 40) {
+                        current = id;
+                    }
+                });
+                if (current) {
+                    document.querySelectorAll('.nav-tab').forEach(t => {
+                        t.classList.toggle('active', t.dataset.tab === current);
+                    });
+                }
+            });
+
+            // Add click effects to interactive elements
+            document.querySelectorAll('button').forEach(element => {
+                element.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.97)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+            
+            // Scroll to Top Button functionality
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.classList.add('show');
+                } else {
+                    scrollToTopBtn.classList.remove('show');
+                }
+            });
+            
+            scrollToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+        }); // End DOMContentLoaded
+    </script>
+    
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" aria-label="Back to top" title="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+    
+    </div> </body>
+</html>
