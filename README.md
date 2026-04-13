@@ -2,8 +2,6 @@
 
 > **Cloud Solutions Architect** | 8+ years of experience in Multicloud Architecture, Software Engineering & DevOps
 
-Live: [portfolio-irodrigues.github.io](https://portfolio-irodrigues.github.io)
-
 ---
 
 ## About
