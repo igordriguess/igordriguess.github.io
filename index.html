@@ -1922,6 +1922,35 @@
             margin-top: auto;
             margin-bottom: auto;
         }
+
+        /* Modal Contact Icons - Mobile Responsive */
+        @media (max-width: 768px) {
+            #projectModal a[href*="tel"],
+            #projectModal a[href*="linkedin"],
+            #servicesModal a[href*="tel"],
+            #servicesModal a[href*="linkedin"],
+            #articleModal a[href*="tel"],
+            #articleModal a[href*="linkedin"],
+            #sharesModal a[href*="tel"],
+            #sharesModal a[href*="linkedin"] {
+                padding: 10px !important;
+                font-size: 0;
+            }
+            
+            #projectModal a[href*="tel"] i,
+            #projectModal a[href*="linkedin"] i,
+            #servicesModal a[href*="tel"] i,
+            #servicesModal a[href*="linkedin"] i,
+            #articleModal a[href*="tel"] i,
+            #articleModal a[href*="linkedin"] i,
+            #sharesModal a[href*="tel"] i,
+            #sharesModal a[href*="linkedin"] i {
+                margin-right: 0 !important;
+                margin: 0;
+                width: 24px;
+                height: 24px;
+            }
+        }
     </style>
 </head>
 <body class="ide-bg text-gray-300 min-h-screen code-font" role="document">
