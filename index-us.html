@@ -32,17 +32,7 @@
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <style>
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1a1a1a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #3b82f6;
-            border-radius: 4px;
-        }
+        /* Keep default browser scrollbar for page content. */
         .ide-bg {
             background-color: #0a0a0a;
             background-image: 
@@ -447,26 +437,7 @@
         
 
         
-        /* Enhanced scrollbar */
-        ::-webkit-scrollbar {
-            width: 12px;
-            height: 12px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: rgba(17, 24, 39, 0.8);
-            border-radius: 6px;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #3b82f6, #1d4ed8);
-            border-radius: 6px;
-            border: 2px solid rgba(17, 24, 39, 0.8);
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #60a5fa, #3b82f6);
-        }
+        /* Keep default browser scrollbar for page content. */
         
         /* Scroll to Top Button */
         #scrollToTop {
@@ -492,9 +463,11 @@
         }
         
         #scrollToTop.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+            display: flex !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+            pointer-events: auto !important;
         }
         
         #scrollToTop:hover {
@@ -761,6 +734,15 @@
             white-space: nowrap;
             flex-shrink: 0;
             letter-spacing: -0.01em;
+            cursor: pointer;
+            text-decoration: none;
+            border: none;
+            padding: 0;
+            transition: opacity 0.3s ease;
+            display: inline-block;
+        }
+        .nav-brand:hover {
+            opacity: 0.8;
         }
 
         .nav-tabs-container {
@@ -1062,12 +1044,765 @@
             color: #60a5fa !important;
         }
 
+        :root {
+            --bg: #0b1117;
+            --bg-grid: rgba(148, 163, 184, 0.08);
+            --nav-bg: rgba(11, 17, 23, 0.92);
+            --hero-bg: #101924;
+            --card: #111827;
+            --surface-alt: #1f2937;
+            --border: rgba(148, 163, 184, 0.26);
+            --text: #d1d5db;
+            --text-strong: #f3f4f6;
+            --muted: #94a3b8;
+            --accent: #93c5fd;
+        }
+
+        [data-theme="light"] {
+            --bg: #f3f4f6;
+            --bg-grid: rgba(71, 85, 105, 0.08);
+            --nav-bg: rgba(255, 255, 255, 0.94);
+            --hero-bg: #e5e7eb;
+            --card: #ffffff;
+            --surface-alt: #f3f4f6;
+            --border: rgba(71, 85, 105, 0.24);
+            --text: #1f2937;
+            --text-strong: #0f172a;
+            --muted: #475569;
+            --accent: #1d4ed8;
+        }
+
+        body.ide-bg {
+            background-color: var(--bg) !important;
+            color: var(--text);
+        }
+
+        .ide-bg {
+            background-color: var(--bg) !important;
+            background-image:
+                linear-gradient(var(--bg-grid) 1px, transparent 1px),
+                linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px) !important;
+            background-size: 24px 24px !important;
+        }
+
+        .ide-bg::before {
+            background: none !important;
+        }
+
+        .main-nav {
+            background: var(--nav-bg) !important;
+            border-bottom: 1px solid var(--border) !important;
+            padding: 0;
+        }
+
+        .main-nav-inner {
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-brand {
+            justify-self: start;
+        }
+
+        .nav-controls {
+            justify-self: end;
+        }
+
+        .hero-section {
+            background: var(--card) !important;
+            border-bottom: 1px solid var(--border) !important;
+        }
+
+        .nav-brand,
+        .gradient-text,
+        .gradient-text-purple,
+        .stat-number {
+            background: none !important;
+            -webkit-text-fill-color: var(--text-strong) !important;
+            color: var(--text-strong) !important;
+        }
+
+        .nav-tab {
+            color: var(--muted) !important;
+        }
+
+        .nav-tab:hover,
+        .nav-tab.active {
+            color: var(--text-strong) !important;
+            background: rgba(148, 163, 184, 0.14) !important;
+            border-color: var(--border) !important;
+            box-shadow: none !important;
+        }
+
+        .bg-gray-900.rounded-lg,
+        .stat-card,
+        .language-switcher,
+        .social-btn,
+        .btn-secondary {
+            background: var(--card) !important;
+            border-color: var(--border) !important;
+            box-shadow: none !important;
+        }
+
+        .bg-gray-800,
+        .bg-gray-800.rounded-lg,
+        .bg-gray-800.p-4 {
+            background: var(--surface-alt) !important;
+        }
+
+        .text-gray-300,
+        .text-gray-200,
+        .text-gray-100 {
+            color: var(--text) !important;
+        }
+
+        .text-gray-400,
+        .text-gray-500,
+        .hero-bio,
+        .stat-label {
+            color: var(--muted) !important;
+        }
+
+        .text-blue-400,
+        .text-green-400,
+        .text-purple-400,
+        .text-cyan-400 {
+            color: var(--accent) !important;
+        }
+
+        .btn-primary,
+        .btn-blue-pill,
+        .btn-green-pill,
+        .btn-purple-pill,
+        .btn-cyan-pill {
+            background: #1f2937 !important;
+            border: 1px solid var(--border) !important;
+            color: var(--text-strong) !important;
+            box-shadow: none !important;
+        }
+
+        .btn-primary:hover,
+        .btn-blue-pill:hover,
+        .btn-green-pill:hover,
+        .btn-purple-pill:hover,
+        .btn-cyan-pill:hover,
+        .btn-secondary:hover,
+        .social-btn:hover {
+            background: #374151 !important;
+            color: var(--text-strong) !important;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        #scrollToTop {
+            background: #1f2937 !important;
+            border: 1px solid var(--border) !important;
+            box-shadow: none !important;
+        }
+
+        #scrollToTop:hover {
+            background: #374151 !important;
+            transform: translateY(-2px);
+        }
+
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--text);
+            padding: 6px 12px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+            background: #374151;
+            color: var(--text-strong);
+        }
+
+        [data-theme="light"] .theme-toggle:hover {
+            background: #e5e7eb;
+        }
+
+        /* === SECTION COLOR TUNING (PROJECTS / PUBLICATIONS / RESUME / FOOTER) === */
+        #summary,
+        #projects,
+        #publications,
+        #resume,
+        footer[role="contentinfo"] {
+            background: var(--card) !important;
+            border-color: var(--border) !important;
+        }
+
+        #summary .bg-gray-800.p-4.rounded,
+        #summary .bg-gray-800.rounded-lg,
+        #summary .bg-gray-800.p-4 {
+            background: var(--surface-alt) !important;
+            border-color: var(--border) !important;
+        }
+
+        #summary .border-l-4,
+        #summary [class*="border-l-4"] {
+            border-left-color: var(--border) !important;
+        }
+
+        #summary .text-blue-400,
+        #summary .text-green-400,
+        #summary .text-purple-400,
+        #summary .text-yellow-400,
+        #summary .text-red-400,
+        #summary .text-indigo-400 {
+            color: var(--text-strong) !important;
+        }
+
+        #projects .bg-gray-800.rounded-lg.overflow-hidden.border,
+        #publications .bg-gray-800.rounded-lg.p-4.border,
+        #resume .bg-gray-800.rounded-lg.p-4.border {
+            background: var(--surface-alt) !important;
+            border-color: var(--border) !important;
+        }
+
+        #projects .bg-gray-800.rounded-lg.overflow-hidden.border:hover,
+        #publications .bg-gray-800.rounded-lg.p-4.border:hover {
+            border-color: var(--border) !important;
+        }
+
+        #projects .w-full.h-40.bg-gradient-to-br,
+        #publications .w-16.h-16.bg-gradient-to-br,
+        #resume .w-20.h-20 {
+            background: #1f2937 !important;
+            border-color: var(--border) !important;
+        }
+
+        #projects h3,
+        #publications h3,
+        #resume h3,
+        #resume h4 {
+            color: var(--text-strong) !important;
+        }
+
+        #publications .text-xs,
+        #projects .text-xs {
+            background: #1f2937 !important;
+            color: var(--text) !important;
+            border: 1px solid var(--border);
+        }
+
+        #resume .pdf-mobile-card {
+            background: var(--surface-alt) !important;
+            border-color: var(--border) !important;
+        }
+
+        footer[role="contentinfo"] h3,
+        footer[role="contentinfo"] .text-blue-400,
+        footer[role="contentinfo"] .text-green-400,
+        footer[role="contentinfo"] .text-purple-400,
+        footer[role="contentinfo"] .text-yellow-400 {
+            color: var(--text-strong) !important;
+        }
+
+        footer[role="contentinfo"] .flex.justify-center.space-x-2 span {
+            background: var(--surface-alt) !important;
+            color: var(--text) !important;
+            border: 1px solid var(--border);
+        }
+
+        footer[role="contentinfo"] .border-t {
+            border-color: var(--border) !important;
+        }
+
+        /* === MODAL COLOR TUNING (PROJECTS / PUBLICATIONS) === */
+        #projectModal > div,
+        #servicesModal > div,
+        #articleModal > div,
+        #sharesModal > div {
+            background: var(--card) !important;
+            border-color: var(--border) !important;
+        }
+
+        #projectModal .sticky,
+        #servicesModal .sticky,
+        #articleModal .sticky,
+        #sharesModal .sticky,
+        #projectModal .bg-gray-800,
+        #servicesModal .bg-gray-800,
+        #articleModal .bg-gray-800,
+        #sharesModal .bg-gray-800,
+        #projectModal .bg-gray-700,
+        #servicesModal .bg-gray-700,
+        #articleModal .bg-gray-700,
+        #sharesModal .bg-gray-700 {
+            background: var(--surface-alt) !important;
+            border-color: var(--border) !important;
+        }
+
+        #projectModal [class*="bg-gradient-to"],
+        #servicesModal [class*="bg-gradient-to"],
+        #articleModal [class*="bg-gradient-to"],
+        #sharesModal [class*="bg-gradient-to"] {
+            background: #1f2937 !important;
+            color: var(--text-strong) !important;
+        }
+
+        #projectModal [class*="border-l-4"],
+        #servicesModal [class*="border-l-4"],
+        #articleModal [class*="border-l-4"],
+        #sharesModal [class*="border-l-4"] {
+            border-left-color: var(--border) !important;
+        }
+
+        #projectModal .text-blue-400,
+        #projectModal .text-green-400,
+        #projectModal .text-purple-400,
+        #projectModal .text-cyan-400,
+        #projectModal .text-yellow-400,
+        #projectModal .text-orange-400,
+        #projectModal .text-red-400,
+        #projectModal .text-indigo-400,
+        #servicesModal .text-blue-400,
+        #servicesModal .text-green-400,
+        #servicesModal .text-purple-400,
+        #servicesModal .text-cyan-400,
+        #servicesModal .text-yellow-400,
+        #servicesModal .text-orange-400,
+        #servicesModal .text-red-400,
+        #servicesModal .text-indigo-400,
+        #articleModal .text-blue-400,
+        #articleModal .text-green-400,
+        #articleModal .text-purple-400,
+        #articleModal .text-cyan-400,
+        #articleModal .text-yellow-400,
+        #articleModal .text-orange-400,
+        #articleModal .text-red-400,
+        #articleModal .text-indigo-400,
+        #sharesModal .text-blue-400,
+        #sharesModal .text-green-400,
+        #sharesModal .text-purple-400,
+        #sharesModal .text-cyan-400,
+        #sharesModal .text-yellow-400,
+        #sharesModal .text-orange-400,
+        #sharesModal .text-red-400,
+        #sharesModal .text-indigo-400 {
+            color: var(--text-strong) !important;
+        }
+
+        #projectModal .text-white,
+        #servicesModal .text-white,
+        #articleModal .text-white,
+        #sharesModal .text-white,
+        #projectModal .text-blue-100,
+        #servicesModal .text-blue-100,
+        #articleModal .text-blue-100,
+        #sharesModal .text-blue-100,
+        #projectModal .text-green-100,
+        #servicesModal .text-green-100,
+        #articleModal .text-green-100,
+        #sharesModal .text-green-100,
+        #projectModal .text-purple-100,
+        #servicesModal .text-purple-100,
+        #articleModal .text-purple-100,
+        #sharesModal .text-purple-100,
+        #projectModal .text-cyan-100,
+        #servicesModal .text-cyan-100,
+        #articleModal .text-cyan-100,
+        #sharesModal .text-cyan-100 {
+            color: var(--text) !important;
+        }
+
+        #projectModal .rounded-full,
+        #servicesModal .rounded-full,
+        #articleModal .rounded-full,
+        #sharesModal .rounded-full,
+        #projectModal .rounded-lg,
+        #servicesModal .rounded-lg,
+        #articleModal .rounded-lg,
+        #sharesModal .rounded-lg {
+            border-color: var(--border) !important;
+        }
+
+        #projectModal span[class*="bg-"],
+        #servicesModal span[class*="bg-"],
+        #articleModal span[class*="bg-"],
+        #sharesModal span[class*="bg-"] {
+            background: #1f2937 !important;
+            color: var(--text) !important;
+            border: 1px solid var(--border);
+        }
+
+        [data-theme="light"] .btn-primary,
+        [data-theme="light"] .btn-blue-pill,
+        [data-theme="light"] .btn-green-pill,
+        [data-theme="light"] .btn-purple-pill,
+        [data-theme="light"] .btn-cyan-pill,
+        [data-theme="light"] .btn-secondary,
+        [data-theme="light"] .social-btn,
+        [data-theme="light"] #scrollToTop {
+            background: #e5e7eb !important;
+            color: #0f172a !important;
+        }
+
+        [data-theme="light"] #scrollToTop {
+            background: #cbd5e1 !important;
+            border-color: #94a3b8 !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        [data-theme="light"] #scrollToTop svg {
+            color: #0f172a !important;
+        }
+
+        [data-theme="light"] .btn-primary:hover,
+        [data-theme="light"] .btn-blue-pill:hover,
+        [data-theme="light"] .btn-green-pill:hover,
+        [data-theme="light"] .btn-purple-pill:hover,
+        [data-theme="light"] .btn-cyan-pill:hover,
+        [data-theme="light"] .btn-secondary:hover,
+        [data-theme="light"] .social-btn:hover,
+        [data-theme="light"] #scrollToTop:hover {
+            background: #d1d5db !important;
+            color: #0f172a !important;
+        }
+
+        [data-theme="light"] #scrollToTop:hover {
+            background: #94a3b8 !important;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        /* Light theme refinements for section and modal depth */
+        [data-theme="light"] #summary,
+        [data-theme="light"] #projects,
+        [data-theme="light"] #publications,
+        [data-theme="light"] #resume,
+        [data-theme="light"] footer[role="contentinfo"] {
+            background: #ffffff !important;
+            border-color: #d1d5db !important;
+        }
+
+        [data-theme="light"] #summary .bg-gray-800,
+        [data-theme="light"] #projects .bg-gray-800,
+        [data-theme="light"] #publications .bg-gray-800,
+        [data-theme="light"] #resume .bg-gray-800,
+        [data-theme="light"] footer[role="contentinfo"] .bg-gray-800 {
+            background: #f8fafc !important;
+            border-color: #d1d5db !important;
+        }
+
+        [data-theme="light"] #projects .w-full.h-40.bg-gradient-to-br,
+        [data-theme="light"] #publications .w-16.h-16.bg-gradient-to-br,
+        [data-theme="light"] #resume .w-20.h-20 {
+            background: var(--surface-alt) !important;
+            color: #0f172a !important;
+            box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.06);
+        }
+
+        [data-theme="light"] #projects .w-full.h-40.bg-gradient-to-br svg,
+        [data-theme="light"] #publications .w-16.h-16.bg-gradient-to-br svg,
+        [data-theme="light"] #resume .w-20.h-20 svg {
+            color: #0f172a !important;
+        }
+
+        [data-theme="light"] #projects .text-xs,
+        [data-theme="light"] #publications .text-xs,
+        [data-theme="light"] footer[role="contentinfo"] .flex.justify-center.space-x-2 span {
+            background: #e2e8f0 !important;
+            color: #334155 !important;
+            border-color: #cbd5e1 !important;
+        }
+
+        [data-theme="light"] #projects h2,
+        [data-theme="light"] #publications h2,
+        [data-theme="light"] #resume h2,
+        [data-theme="light"] #summary h2,
+        [data-theme="light"] #projects h3,
+        [data-theme="light"] #publications h3,
+        [data-theme="light"] #resume h3,
+        [data-theme="light"] #summary h3,
+        [data-theme="light"] #resume h4,
+        [data-theme="light"] #summary h4,
+        [data-theme="light"] footer[role="contentinfo"] h3 {
+            color: #0f172a !important;
+        }
+
+        [data-theme="light"] #projectModal > div,
+        [data-theme="light"] #servicesModal > div,
+        [data-theme="light"] #articleModal > div,
+        [data-theme="light"] #sharesModal > div {
+            background: #ffffff !important;
+            border-color: #d1d5db !important;
+        }
+
+        [data-theme="light"] #projectModal .sticky,
+        [data-theme="light"] #servicesModal .sticky,
+        [data-theme="light"] #articleModal .sticky,
+        [data-theme="light"] #sharesModal .sticky,
+        [data-theme="light"] #projectModal .bg-gray-800,
+        [data-theme="light"] #servicesModal .bg-gray-800,
+        [data-theme="light"] #articleModal .bg-gray-800,
+        [data-theme="light"] #sharesModal .bg-gray-800,
+        [data-theme="light"] #projectModal .bg-gray-700,
+        [data-theme="light"] #servicesModal .bg-gray-700,
+        [data-theme="light"] #articleModal .bg-gray-700,
+        [data-theme="light"] #sharesModal .bg-gray-700,
+        [data-theme="light"] #projectModal .bg-gray-900,
+        [data-theme="light"] #servicesModal .bg-gray-900,
+        [data-theme="light"] #articleModal .bg-gray-900,
+        [data-theme="light"] #sharesModal .bg-gray-900 {
+            background: #f8fafc !important;
+            border-color: #d1d5db !important;
+        }
+
+        [data-theme="light"] #projectModal [class*="bg-gradient-to"],
+        [data-theme="light"] #servicesModal [class*="bg-gradient-to"],
+        [data-theme="light"] #articleModal [class*="bg-gradient-to"],
+        [data-theme="light"] #sharesModal [class*="bg-gradient-to"] {
+            background: var(--surface-alt) !important;
+            color: #0f172a !important;
+        }
+
+        [data-theme="light"] #projectModal [class*="bg-gradient-to"] svg,
+        [data-theme="light"] #servicesModal [class*="bg-gradient-to"] svg,
+        [data-theme="light"] #articleModal [class*="bg-gradient-to"] svg,
+        [data-theme="light"] #sharesModal [class*="bg-gradient-to"] svg {
+            color: #0f172a !important;
+        }
+
+        [data-theme="light"] #projectModal span[class*="bg-"],
+        [data-theme="light"] #servicesModal span[class*="bg-"],
+        [data-theme="light"] #articleModal span[class*="bg-"],
+        [data-theme="light"] #sharesModal span[class*="bg-"] {
+            background: #e2e8f0 !important;
+            color: #334155 !important;
+            border-color: #cbd5e1 !important;
+        }
+
+        [data-theme="light"] .hero-section {
+            background: #ffffff !important;
+            border-bottom: 1px solid #d1d5db !important;
+        }
+
+        [data-theme="light"] .hero-title {
+            background: transparent !important;
+            color: #334155 !important;
+        }
+
+        /* Full neutral palette pass */
+        .hero-meta svg {
+            color: var(--text-strong) !important;
+        }
+
+        .hero-status {
+            color: var(--text-strong) !important;
+            border-color: var(--border) !important;
+            background: var(--surface-alt) !important;
+        }
+
+        .hero-status-dot {
+            background: var(--text-strong) !important;
+        }
+
+        .language-btn.active {
+            background: var(--surface-alt) !important;
+            border-color: var(--border) !important;
+            color: var(--text-strong) !important;
+        }
+
+        [class*="text-blue-"],
+        [class*="text-green-"],
+        [class*="text-purple-"],
+        [class*="text-cyan-"],
+        [class*="text-yellow-"],
+        [class*="text-red-"],
+        [class*="text-indigo-"],
+        [class*="text-pink-"],
+        [class*="text-orange-"],
+        [class*="text-teal-"] {
+            color: var(--text-strong) !important;
+        }
+
+        [class*="bg-gradient"],
+        [class*="bg-blue-"],
+        [class*="bg-green-"],
+        [class*="bg-purple-"],
+        [class*="bg-cyan-"],
+        [class*="bg-yellow-"],
+        [class*="bg-red-"],
+        [class*="bg-indigo-"],
+        [class*="bg-pink-"],
+        [class*="bg-orange-"],
+        [class*="bg-teal-"] {
+            background-image: none !important;
+            background-color: var(--surface-alt) !important;
+            color: var(--text) !important;
+            border-color: var(--border) !important;
+        }
+
+        /* Modal layering to avoid flat look */
+        #projectModal > div,
+        #servicesModal > div,
+        #articleModal > div,
+        #sharesModal > div {
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.22);
+        }
+
+        #projectModal .sticky,
+        #servicesModal .sticky,
+        #articleModal .sticky,
+        #sharesModal .sticky {
+            border-bottom: 1px solid var(--border) !important;
+        }
+
+        #projectModal .p-6.space-y-6 > div,
+        #servicesModal .p-6.space-y-6 > div,
+        #articleModal .p-6.space-y-6 > div,
+        #sharesModal .p-6.space-y-6 > div {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset;
+        }
+
+        #projectModal > div,
+        #servicesModal > div,
+        #articleModal > div,
+        #sharesModal > div {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            max-height: 90vh;
+        }
+
+        #projectModal .modal-body-scroll,
+        #servicesModal .modal-body-scroll,
+        #articleModal .modal-body-scroll,
+        #sharesModal .modal-body-scroll {
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #94a3b8 transparent;
+        }
+
+        #projectModal .modal-body-scroll::-webkit-scrollbar,
+        #servicesModal .modal-body-scroll::-webkit-scrollbar,
+        #articleModal .modal-body-scroll::-webkit-scrollbar,
+        #sharesModal .modal-body-scroll::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        #projectModal .modal-body-scroll::-webkit-scrollbar-track,
+        #servicesModal .modal-body-scroll::-webkit-scrollbar-track,
+        #articleModal .modal-body-scroll::-webkit-scrollbar-track,
+        #sharesModal .modal-body-scroll::-webkit-scrollbar-track,
+        #projectModal .modal-body-scroll::-webkit-scrollbar-track-piece,
+        #servicesModal .modal-body-scroll::-webkit-scrollbar-track-piece,
+        #articleModal .modal-body-scroll::-webkit-scrollbar-track-piece,
+        #sharesModal .modal-body-scroll::-webkit-scrollbar-track-piece,
+        #projectModal .modal-body-scroll::-webkit-scrollbar-corner,
+        #servicesModal .modal-body-scroll::-webkit-scrollbar-corner,
+        #articleModal .modal-body-scroll::-webkit-scrollbar-corner,
+        #sharesModal .modal-body-scroll::-webkit-scrollbar-corner {
+            background: transparent;
+        }
+
+        #projectModal .modal-body-scroll::-webkit-scrollbar-thumb,
+        #servicesModal .modal-body-scroll::-webkit-scrollbar-thumb,
+        #articleModal .modal-body-scroll::-webkit-scrollbar-thumb,
+        #sharesModal .modal-body-scroll::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 999px;
+            border: 3px solid transparent;
+            background-clip: content-box;
+        }
+
+        #projectModal .modal-body-scroll::-webkit-scrollbar-thumb:hover,
+        #servicesModal .modal-body-scroll::-webkit-scrollbar-thumb:hover,
+        #articleModal .modal-body-scroll::-webkit-scrollbar-thumb:hover,
+        #sharesModal .modal-body-scroll::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+            background-clip: content-box;
+        }
+
+        #projectModal .modal-body-scroll::-webkit-scrollbar-button,
+        #servicesModal .modal-body-scroll::-webkit-scrollbar-button,
+        #articleModal .modal-body-scroll::-webkit-scrollbar-button,
+        #sharesModal .modal-body-scroll::-webkit-scrollbar-button,
+        #projectModal .modal-body-scroll::-webkit-scrollbar-button:single-button,
+        #servicesModal .modal-body-scroll::-webkit-scrollbar-button:single-button,
+        #articleModal .modal-body-scroll::-webkit-scrollbar-button:single-button,
+        #sharesModal .modal-body-scroll::-webkit-scrollbar-button:single-button,
+        #projectModal .modal-body-scroll::-webkit-scrollbar-button:vertical:decrement,
+        #servicesModal .modal-body-scroll::-webkit-scrollbar-button:vertical:decrement,
+        #articleModal .modal-body-scroll::-webkit-scrollbar-button:vertical:decrement,
+        #sharesModal .modal-body-scroll::-webkit-scrollbar-button:vertical:decrement,
+        #projectModal .modal-body-scroll::-webkit-scrollbar-button:vertical:increment,
+        #servicesModal .modal-body-scroll::-webkit-scrollbar-button:vertical:increment,
+        #articleModal .modal-body-scroll::-webkit-scrollbar-button:vertical:increment,
+        #sharesModal .modal-body-scroll::-webkit-scrollbar-button:vertical:increment {
+            -webkit-appearance: none;
+            appearance: none;
+            display: none;
+            width: 0;
+            height: 0;
+            background: transparent;
+            border: 0;
+        }
+
+        [data-theme="light"] #projectModal > div,
+        [data-theme="light"] #servicesModal > div,
+        [data-theme="light"] #articleModal > div,
+        [data-theme="light"] #sharesModal > div {
+            background: #ffffff !important;
+            box-shadow: 0 28px 70px rgba(15, 23, 42, 0.18);
+        }
+
+        [data-theme="light"] #projectModal .sticky,
+        [data-theme="light"] #servicesModal .sticky,
+        [data-theme="light"] #articleModal .sticky,
+        [data-theme="light"] #sharesModal .sticky {
+            background: #f8fafc !important;
+            border-bottom: 1px solid #d1d5db !important;
+        }
+
+        [data-theme="light"] #projectModal .p-6.space-y-6 > div,
+        [data-theme="light"] #servicesModal .p-6.space-y-6 > div,
+        [data-theme="light"] #articleModal .p-6.space-y-6 > div,
+        [data-theme="light"] #sharesModal .p-6.space-y-6 > div {
+            background: #ffffff !important;
+            border: 1px solid #d1d5db !important;
+            box-shadow: 0 3px 12px rgba(15, 23, 42, 0.05);
+        }
+
+        [data-theme="light"] #projectModal > div,
+        [data-theme="light"] #servicesModal > div,
+        [data-theme="light"] #articleModal > div,
+        [data-theme="light"] #sharesModal > div {
+            scrollbar-color: #94a3b8 transparent;
+        }
+
+        [data-theme="light"] #projectModal > div::-webkit-scrollbar-thumb,
+        [data-theme="light"] #servicesModal > div::-webkit-scrollbar-thumb,
+        [data-theme="light"] #articleModal > div::-webkit-scrollbar-thumb,
+        [data-theme="light"] #sharesModal > div::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+        }
+
+        [data-theme="light"] #projectModal > div::-webkit-scrollbar-thumb:hover,
+        [data-theme="light"] #servicesModal > div::-webkit-scrollbar-thumb:hover,
+        [data-theme="light"] #articleModal > div::-webkit-scrollbar-thumb:hover,
+        [data-theme="light"] #sharesModal > div::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+
         /* === RESPONSIVE === */
 
         /* ── 768 px (tablet / large phone landscape) ─────────────────── */
         @media (max-width: 768px) {
             html { scroll-padding-top: 72px; }
-            .main-nav { padding: 0 16px; height: 56px; }
+            .main-nav { height: 56px; }
             .nav-brand { font-size: 0.85rem; }
             /* Hide text labels from language buttons — keep flags only */
             .language-btn span:last-child { display: none !important; }
@@ -1151,7 +1886,7 @@
         @media (max-width: 390px) {
             .nav-brand { display: none; }
             .nav-tabs-container { justify-content: flex-start; gap: 2px; }
-            .main-nav { gap: 4px; padding: 0 10px; }
+            .main-nav-inner { gap: 4px; padding: 0 10px; }
             .nav-tab { padding: 7px 10px; }
             .nav-controls { gap: 6px !important; }
         }
@@ -1193,23 +1928,24 @@
 
     <!-- Sticky Navigation -->
     <nav class="main-nav" id="main-nav" role="navigation" aria-label="Main navigation">
-        <div class="nav-brand">Igor Rodrigues</div>
+        <div class="container mx-auto px-4 main-nav-inner">
+        <a href="javascript:window.scrollTo(0, 0)" class="nav-brand">Igor Rodrigues</a>
         <div class="nav-tabs-container" role="tablist">
             <a href="#summary" class="nav-tab active" data-tab="summary" role="tab" aria-selected="true">
                 <i data-feather="user"></i>
-                <span>summary.tsx</span>
+                <span>Summary</span>
             </a>
             <a href="#projects" class="nav-tab" data-tab="projects" role="tab" aria-selected="false">
                 <i data-feather="folder"></i>
-                <span>projects.js</span>
+                <span>Projects</span>
             </a>
             <a href="#publications" class="nav-tab" data-tab="publications" role="tab" aria-selected="false">
                 <i data-feather="file-text"></i>
-                <span>publications.md</span>
+                <span>Publications</span>
             </a>
             <a href="#resume" class="nav-tab" data-tab="resume" role="tab" aria-selected="false">
                 <i data-feather="download"></i>
-                <span>resume.pdf</span>
+                <span>Resume</span>
             </a>
         </div>
         <div class="nav-controls">
@@ -1223,6 +1959,10 @@
                     <span class="hidden sm:inline">EN</span>
                 </button>
             </div>
+            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch theme" title="Switch theme" aria-pressed="true">
+                <i data-feather="moon"></i>
+            </button>
+        </div>
         </div>
     </nav>
 
@@ -1232,10 +1972,6 @@
             <div class="hero-content">
                 <div class="hero-avatar-wrapper">
                     <img src="image.jpg" alt="Igor Rodrigues" class="hero-img float-animation pulse-glow">
-                    <div class="hero-status">
-                        <span class="hero-status-dot"></span>
-                        Available
-                    </div>
                 </div>
                 <div class="hero-info">
                     <h1 class="hero-name gradient-text">Igor Rodrigues</h1>
@@ -1260,9 +1996,6 @@
                         </a>
                         <a href="https://linkedin.com/in/igordriguess" target="_blank" class="social-btn" aria-label="LinkedIn">
                             <i data-feather="linkedin"></i>
-                        </a>
-                        <a href="mailto:igorvprodrigues@gmail.com" class="social-btn" aria-label="Email">
-                            <i data-feather="mail"></i>
                         </a>
                     </div>
                 </div>
@@ -1294,8 +2027,7 @@
             <div class="space-y-12">
                 <section id="summary" class="bg-gray-900 rounded-lg p-6 border border-gray-800 card-hover" data-aos="fade-up">
                     <div class="flex items-center mb-4 section-title-row">
-                        <h2 class="text-2xl font-bold gradient-text">summary()</h2>
-                        <span class="ml-2 text-gray-500">// Who I am</span>
+                        <h2 class="text-2xl font-bold gradient-text">Summary</h2>
                     </div>
                     <div class="space-y-4">
                         <p class="text-gray-300">
@@ -1342,8 +2074,7 @@
 
                 <section id="projects" class="bg-gray-900 rounded-lg p-6 border border-gray-800 card-hover" data-aos="fade-up">
                     <div class="flex items-center mb-4 section-title-row">
-                        <h2 class="text-2xl font-bold gradient-text">projects()</h2>
-                        <span class="ml-2 text-gray-500">// My recent works</span>
+                        <h2 class="text-2xl font-bold gradient-text">Projects</h2>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="bg-gray-800 rounded-lg overflow-hidden border border-gray-700 hover:border-blue-400 transition-colors">
@@ -1401,8 +2132,7 @@
 
                 <section id="publications" class="bg-gray-900 rounded-lg p-6 border border-gray-800 card-hover" data-aos="fade-up">
                     <div class="flex items-center mb-4 section-title-row">
-                        <h2 class="text-2xl font-bold gradient-text-purple">publications()</h2>
-                        <span class="ml-2 text-gray-500">// Articles and tutorials</span>
+                        <h2 class="text-2xl font-bold gradient-text-purple">Publications</h2>
                     </div>
                     <div class="space-y-4">
                         <div class="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-purple-400 transition-colors">
@@ -1482,8 +2212,7 @@
 
                 <section id="resume" class="bg-gray-900 rounded-lg p-6 border border-gray-800 card-hover" data-aos="fade-up">
                     <div class="flex items-center mb-4 section-title-row">
-                        <h2 class="text-2xl font-bold gradient-text">resume()</h2>
-                        <span class="ml-2 text-gray-500">// Professional experience</span>
+                        <h2 class="text-2xl font-bold gradient-text">Resume</h2>
                     </div>
                     <div class="space-y-6">
                         <div class="flex flex-col lg:flex-row gap-6">
@@ -1569,7 +2298,7 @@
     </div>
 
     <div id="projectModal" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden">
-        <div class="bg-gray-900 rounded-xl border border-gray-700 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+        <div class="bg-gray-900 rounded-xl border border-gray-700 max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
                 <div class="sticky top-0 bg-gray-900 border-b border-gray-700 p-6 flex items-center justify-between">
                     <div class="flex items-center">
                         <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-700 rounded-lg flex items-center justify-center mr-4">
@@ -1585,7 +2314,7 @@
                     </button>
                 </div>
 
-                <div class="p-6 space-y-6">
+                <div class="modal-body-scroll p-6 space-y-6">
                     <div class="bg-gray-800 rounded-lg p-6 border-l-4 border-blue-400">
                         <h3 class="text-xl font-bold text-blue-400 mb-4">About the Project</h3>
                         <p class="text-gray-300 leading-relaxed">
@@ -1732,7 +2461,7 @@
     </div>
 
     <div id="servicesModal" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden">
-        <div class="bg-gray-900 rounded-xl border border-gray-700 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+        <div class="bg-gray-900 rounded-xl border border-gray-700 max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
                 <div class="sticky top-0 bg-gray-900 border-b border-gray-700 p-6 flex items-center justify-between">
                     <div class="flex items-center">
                         <div class="w-12 h-12 bg-gradient-to-br from-green-600 to-teal-600 rounded-lg flex items-center justify-center mr-4">
@@ -1748,7 +2477,7 @@
                     </button>
                 </div>
 
-                <div class="p-6 space-y-6">
+                <div class="modal-body-scroll p-6 space-y-6">
                     <div class="bg-gray-800 rounded-lg p-6 border-l-4 border-green-400">
                         <h3 class="text-xl font-bold text-green-400 mb-4">About the Project</h3>
                         <p class="text-gray-300 leading-relaxed mb-4">
@@ -1948,7 +2677,7 @@
     </div>
 
     <div id="articleModal" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden">
-        <div class="bg-gray-900 rounded-xl border border-gray-700 max-w-5xl w-full max-h-[90vh] overflow-y-auto">
+        <div class="bg-gray-900 rounded-xl border border-gray-700 max-w-5xl w-full max-h-[90vh] overflow-hidden flex flex-col">
                 <div class="sticky top-0 bg-gray-900 border-b border-gray-700 p-6 flex items-center justify-between">
                     <div class="flex items-center">
                         <div class="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center mr-4">
@@ -1964,7 +2693,7 @@
                     </button>
                 </div>
 
-                <div class="p-6 space-y-6">
+                <div class="modal-body-scroll p-6 space-y-6">
                     <div class="bg-gray-800 rounded-lg p-6 border-l-4 border-purple-400">
                         <h3 class="text-xl font-bold text-purple-400 mb-4">Introduction</h3>
                         <p class="text-gray-300 leading-relaxed mb-4">
@@ -2228,7 +2957,7 @@ Exit</code></pre>
     </div>
 
     <div id="sharesModal" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden">
-        <div class="bg-gray-900 rounded-xl border border-gray-700 max-w-5xl w-full max-h-[90vh] overflow-y-auto">
+        <div class="bg-gray-900 rounded-xl border border-gray-700 max-w-5xl w-full max-h-[90vh] overflow-hidden flex flex-col">
                 <div class="sticky top-0 bg-gray-900 border-b border-gray-700 p-6 flex items-center justify-between">
                     <div class="flex items-center">
                         <div class="w-12 h-12 bg-gradient-to-br from-cyan-600 to-blue-600 rounded-lg flex items-center justify-center mr-4">
@@ -2244,7 +2973,7 @@ Exit</code></pre>
                     </button>
                 </div>
 
-                <div class="p-6 space-y-6">
+                <div class="modal-body-scroll p-6 space-y-6">
                     <div class="bg-gray-800 rounded-lg p-6 border-l-4 border-cyan-400">
                         <h3 class="text-xl font-bold text-cyan-400 mb-4">Project Goal</h3>
                         <p class="text-gray-300 leading-relaxed mb-4">
@@ -2511,17 +3240,13 @@ while ($true) {
                         <i data-feather="info" class="w-5 h-5 mr-2" aria-hidden="true"></i>
                         About this Portfolio
                     </h3>
-                    <p class="text-gray-400 text-sm">Design inspired by IDEs</p>
+                    <p class="text-gray-400 text-sm">Portfolio where I present my work and experiences.</p>
                     <p class="text-gray-400 text-sm">© 2026 - All rights reserved</p>
                 </div>
             </div>
             
             <div class="border-t border-gray-800 mt-6 pt-6">
                 <div class="flex flex-col md:flex-row justify-between items-center">
-                    <div class="flex items-center mb-4 md:mb-0">
-                        <span class="text-gray-500 text-sm code-font">~/portfolio</span>
-                        <span class="text-blue-400 text-sm ml-2">/ igordriguess</span>
-                    </div>
                     
                     <nav class="flex space-x-4" aria-label="Social links">
                         <a href="https://github.com/igordriguess" 
@@ -2533,11 +3258,6 @@ while ($true) {
                            class="text-gray-400 hover:text-blue-400 transition-colors" 
                            title="LinkedIn" aria-label="LinkedIn Profile" target="_blank" rel="noopener noreferrer">
                             <i data-feather="linkedin" class="w-5 h-5" aria-hidden="true"></i>
-                        </a>
-                        <a href="mailto:igorvprodrigues@gmail.com" 
-                           class="text-gray-400 hover:text-blue-400 transition-colors" 
-                           title="Email" aria-label="Send email">
-                            <i data-feather="mail" class="w-5 h-5" aria-hidden="true"></i>
                         </a>
                     </nav>
                 </div>
@@ -2583,6 +3303,56 @@ while ($true) {
                     }
                 });
             });
+
+            // ============================================
+            // THEME SWITCHER
+            // ============================================
+            const themeToggleButton = document.getElementById('themeToggle');
+            const themeCopy = {
+                'pt-br': {
+                    darkLabel: 'Escuro',
+                    lightLabel: 'Claro',
+                    switchToLight: 'Alternar para tema claro',
+                    switchToDark: 'Alternar para tema escuro'
+                },
+                'en-us': {
+                    darkLabel: 'Dark',
+                    lightLabel: 'Light',
+                    switchToLight: 'Switch to light theme',
+                    switchToDark: 'Switch to dark theme'
+                }
+            };
+
+            function updateThemeButton(theme) {
+                if (!themeToggleButton) {
+                    return;
+                }
+
+                const langText = themeCopy[currentLang] || themeCopy['en-us'];
+                const iconName = theme === 'dark' ? 'moon' : 'sun';
+                const nextThemeLabel = theme === 'dark' ? langText.switchToLight : langText.switchToDark;
+
+                themeToggleButton.innerHTML = feather.icons[iconName].toSvg();
+                themeToggleButton.setAttribute('aria-label', nextThemeLabel);
+                themeToggleButton.setAttribute('title', nextThemeLabel);
+                themeToggleButton.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+            }
+
+            function applyTheme(theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+                localStorage.setItem('preferredTheme', theme);
+                updateThemeButton(theme);
+            }
+
+            const savedTheme = localStorage.getItem('preferredTheme') || 'dark';
+            applyTheme(savedTheme);
+
+            if (themeToggleButton) {
+                themeToggleButton.addEventListener('click', function() {
+                    const activeTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+                    applyTheme(activeTheme === 'dark' ? 'light' : 'dark');
+                });
+            }
         
             function toggleFullscreen() {
                 const pdfViewer = document.getElementById('pdf-viewer');
@@ -2758,21 +3528,44 @@ while ($true) {
             
             // Scroll to Top Button functionality
             const scrollToTopBtn = document.getElementById('scrollToTop');
-            
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 300) {
-                    scrollToTopBtn.classList.add('show');
-                } else {
-                    scrollToTopBtn.classList.remove('show');
+            const mainContent = document.getElementById('mainContent');
+
+            if (scrollToTopBtn) {
+                const getScrollTop = () => {
+                    const windowScroll = window.pageYOffset || 0;
+                    const documentScroll = document.scrollingElement ? document.scrollingElement.scrollTop : 0;
+                    const htmlScroll = document.documentElement ? document.documentElement.scrollTop : 0;
+                    const bodyScroll = document.body ? document.body.scrollTop : 0;
+                    const contentScroll = mainContent ? mainContent.scrollTop : 0;
+                    return Math.max(windowScroll, documentScroll, htmlScroll, bodyScroll, contentScroll);
+                };
+
+                const toggleScrollButton = () => {
+                    scrollToTopBtn.classList.toggle('show', getScrollTop() > 120);
+                };
+
+                window.addEventListener('scroll', toggleScrollButton, { passive: true });
+                document.addEventListener('scroll', toggleScrollButton, { passive: true });
+                document.addEventListener('wheel', toggleScrollButton, { passive: true });
+                document.addEventListener('touchmove', toggleScrollButton, { passive: true });
+                if (mainContent) {
+                    mainContent.addEventListener('scroll', toggleScrollButton, { passive: true });
                 }
-            });
-            
-            scrollToTopBtn.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
+
+                scrollToTopBtn.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    if (document.scrollingElement) {
+                        document.scrollingElement.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                    if (mainContent) {
+                        mainContent.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
                 });
-            });
+
+                // Ensure correct initial state if user refreshes mid-page.
+                toggleScrollButton();
+                requestAnimationFrame(toggleScrollButton);
+            }
             
         }); // End DOMContentLoaded
     </script>
@@ -2783,6 +3576,59 @@ while ($true) {
             <polyline points="18 15 12 9 6 15"></polyline>
         </svg>
     </button>
+
+    <script>
+        (function () {
+            const btn = document.getElementById('scrollToTop');
+            if (!btn) return;
+
+            // Keep button at document root to avoid clipping/stacking issues inside containers.
+            if (btn.parentElement !== document.body) {
+                document.body.appendChild(btn);
+            }
+
+            // Enforce fixed placement even if other styles conflict.
+            btn.style.position = 'fixed';
+            btn.style.right = '16px';
+            btn.style.bottom = '16px';
+            btn.style.zIndex = '99999';
+
+            const mainContent = document.getElementById('mainContent');
+            const getY = () => Math.max(
+                window.scrollY || 0,
+                window.pageYOffset || 0,
+                document.scrollingElement ? document.scrollingElement.scrollTop : 0,
+                document.documentElement ? document.documentElement.scrollTop : 0,
+                document.body ? document.body.scrollTop : 0,
+                mainContent ? mainContent.scrollTop : 0
+            );
+
+            const toggle = () => {
+                btn.classList.toggle('show', getY() > 120);
+            };
+
+            window.addEventListener('scroll', toggle, { passive: true });
+            document.addEventListener('scroll', toggle, { passive: true });
+            document.addEventListener('wheel', toggle, { passive: true });
+            document.addEventListener('touchmove', toggle, { passive: true });
+            if (mainContent) {
+                mainContent.addEventListener('scroll', toggle, { passive: true });
+            }
+
+            btn.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                if (document.scrollingElement) {
+                    document.scrollingElement.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+                if (mainContent) {
+                    mainContent.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+
+            toggle();
+            requestAnimationFrame(toggle);
+        })();
+    </script>
     
     </div> </body>
 </html>
