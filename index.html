@@ -464,6 +464,13 @@
             box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
             backdrop-filter: blur(10px);
         }
+
+        body.modal-open #scrollToTop {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            transform: translateY(20px) !important;
+        }
         
         #scrollToTop.show {
             opacity: 1;
@@ -1814,8 +1821,8 @@
             /* PDF embed useless on mobile — swap with download card */
             .pdf-embed-wrapper { display: none !important; }
             .pdf-mobile-card  { display: flex !important; }
-            /* Hide fullscreen button on mobile — download only */
-            .resume-header-btns button { display: none !important; }
+            /* Keep a single PDF download CTA on mobile (inside the mobile card) */
+            .resume-header-btns { display: none !important; }
         }
 
         /* ── 640 px (small tablet / large phone landscape) ────────────── */
@@ -1951,6 +1958,107 @@
                 height: 24px;
             }
         }
+
+        /* Mobile app-style bottom navigation */
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 16px;
+                scroll-padding-bottom: calc(92px + env(safe-area-inset-bottom));
+            }
+
+            .main-nav {
+                position: fixed !important;
+                top: auto !important;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: auto !important;
+                border-bottom: none !important;
+                border-top: 1px solid var(--border) !important;
+                background: var(--nav-bg) !important;
+                z-index: 250;
+            }
+
+            .main-nav-inner {
+                grid-template-columns: minmax(0, 1fr) auto !important;
+                gap: 10px !important;
+                padding: 8px 12px calc(8px + env(safe-area-inset-bottom)) !important;
+            }
+
+            .nav-brand {
+                display: none !important;
+            }
+
+            .nav-tabs-container {
+                justify-content: space-between !important;
+                gap: 6px !important;
+                overflow: visible;
+            }
+
+            .nav-tab {
+                flex: 1;
+                justify-content: center;
+                padding: 10px 8px !important;
+                gap: 0 !important;
+                border-radius: 12px;
+            }
+
+            .nav-tab span {
+                display: none !important;
+            }
+
+            .nav-tab svg {
+                width: 18px;
+                height: 18px;
+            }
+
+            .nav-controls {
+                gap: 8px !important;
+            }
+
+            .language-switcher {
+                padding: 2px !important;
+            }
+
+            .language-btn {
+                padding: 6px 7px !important;
+                min-width: 36px;
+                justify-content: center;
+            }
+
+            .language-btn span:last-child {
+                display: none !important;
+            }
+
+            .theme-toggle {
+                min-width: 40px;
+                padding: 8px 10px;
+                justify-content: center;
+            }
+
+            #mainContent {
+                padding-bottom: calc(94px + env(safe-area-inset-bottom));
+            }
+
+            #scrollToTop {
+                bottom: calc(100px + env(safe-area-inset-bottom));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-nav-inner {
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+            }
+
+            .nav-controls {
+                gap: 6px !important;
+            }
+
+            .nav-tab {
+                padding: 9px 6px !important;
+            }
+        }
     </style>
 </head>
 <body class="ide-bg text-gray-300 min-h-screen code-font" role="document">
@@ -2043,7 +2151,7 @@
                     <span class="stat-label">Cloud Platforms</span>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-number">5+</span>
+                    <span class="stat-number">10+</span>
                     <span class="stat-label">Certificações</span>
                 </div>
                 <div class="stat-card">
@@ -2259,7 +2367,6 @@
                             <div class="lg:w-2/3">
                                 <div class="bg-gray-800 rounded-lg p-4 border border-gray-700">
                                     <div class="flex items-center justify-between mb-4">
-                                        <h3 class="text-lg font-bold text-blue-400">Currículo Completo</h3>
                                         <div class="flex gap-2 resume-header-btns">
                                             <a href="Igor Rodrigues.pdf" download class="btn-blue-pill">
                                                 <i data-feather="download"></i> Download PDF
@@ -2313,6 +2420,9 @@
                                                 <li>• OCI Migration Architect Professional</li>
                                                 <li>• OCI Architect Associate</li>
                                                 <li>• Microsoft Azure AZ-900</li>
+                                                <li>• AWS Certified Solutions Architect</li>
+                                                <li>• Sophos Endpoint Engineer</li>
+                                                <li>• Sophos Firewall Engineer</li>
                                                 <li>• ITIL 4 Foundations</li>
                                             </ul>
                                         </div>
@@ -2490,21 +2600,6 @@
                         </div>
                     </div>
 
-                    <!-- Contato -->
-                    <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-6 text-center">
-                        <h3 class="text-xl font-bold text-white mb-4">Interessado no projeto?</h3>
-                        <p class="text-gray-100 mb-4">Entre em contato para ter acesso ao código completo!</p>
-                        <div class="flex justify-center items-center space-x-4">
-                            <a href="tel:+5516991584347" class="flex items-center bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg text-white transition-colors">
-                                <i data-feather="phone" class="w-5 h-5 mr-2"></i>
-                                +55 16 99158-4347
-                            </a>
-                            <a href="https://linkedin.com/in/igordriguess" target="_blank" class="flex items-center bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg text-white transition-colors">
-                                <i data-feather="linkedin" class="w-5 h-5 mr-2"></i>
-                                LinkedIn
-                            </a>
-                        </div>
-                    </div>
                 </div>
             </div>
     </div>
@@ -2700,36 +2795,6 @@
                         </div>
                     </div>
 
-                    <!-- Tecnologias Tags -->
-                    <div class="bg-gray-800 rounded-lg p-6">
-                        <h3 class="text-xl font-bold text-blue-400 mb-4">Stack Tecnológica</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-sm">Python 3</span>
-                            <span class="px-3 py-1 bg-green-600 text-white rounded-full text-sm">Ttkbootstrap</span>
-                            <span class="px-3 py-1 bg-purple-600 text-white rounded-full text-sm">Subprocess</span>
-                            <span class="px-3 py-1 bg-orange-600 text-white rounded-full text-sm">PowerShell</span>
-                            <span class="px-3 py-1 bg-teal-600 text-white rounded-full text-sm">Senior HCM</span>
-                            <span class="px-3 py-1 bg-red-600 text-white rounded-full text-sm">SaaS</span>
-                            <span class="px-3 py-1 bg-indigo-600 text-white rounded-full text-sm">GUI</span>
-                            <span class="px-3 py-1 bg-pink-600 text-white rounded-full text-sm">Remote Management</span>
-                        </div>
-                    </div>
-
-                    <!-- Contato -->
-                    <div class="bg-gradient-to-r from-green-600 to-teal-600 rounded-lg p-6 text-center">
-                        <h3 class="text-xl font-bold text-white mb-4">Interessado no projeto?</h3>
-                        <p class="text-gray-100 mb-4">Entre em contato para ter acesso ao código completo!</p>
-                        <div class="flex justify-center items-center space-x-4">
-                            <a href="tel:+5516991584347" class="flex items-center bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg text-white transition-colors">
-                                <i data-feather="phone" class="w-5 h-5 mr-2"></i>
-                                +55 16 99158-4347
-                            </a>
-                            <a href="https://linkedin.com/in/igordriguess" target="_blank" class="flex items-center bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg text-white transition-colors">
-                                <i data-feather="linkedin" class="w-5 h-5 mr-2"></i>
-                                LinkedIn
-                            </a>
-                        </div>
-                    </div>
                 </div>
             </div>
     </div>
@@ -3004,19 +3069,6 @@ Exit</code></pre>
                         </p>
                     </div>
 
-                    <!-- Tecnologias -->
-                    <div class="bg-gray-800 rounded-lg p-6">
-                        <h3 class="text-xl font-bold text-blue-400 mb-4">Tags</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-sm">PowerShell</span>
-                            <span class="px-3 py-1 bg-green-600 text-white rounded-full text-sm">HCM</span>
-                            <span class="px-3 py-1 bg-purple-600 text-white rounded-full text-sm">Automação</span>
-                            <span class="px-3 py-1 bg-orange-600 text-white rounded-full text-sm">Processos</span>
-                            <span class="px-3 py-1 bg-red-600 text-white rounded-full text-sm">Remote Management</span>
-                            <span class="px-3 py-1 bg-teal-600 text-white rounded-full text-sm">Windows Server</span>
-                            <span class="px-3 py-1 bg-indigo-600 text-white rounded-full text-sm">System Administration</span>
-                        </div>
-                    </div>
                 </div>
             </div>
     </div>
@@ -3265,20 +3317,6 @@ while ($true) {
                         </div>
                     </div>
 
-                    <!-- Tecnologias -->
-                    <div class="bg-gray-800 rounded-lg p-6">
-                        <h3 class="text-xl font-bold text-blue-400 mb-4">Tags</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-sm">PowerShell</span>
-                            <span class="px-3 py-1 bg-cyan-600 text-white rounded-full text-sm">Compartilhamentos</span>
-                            <span class="px-3 py-1 bg-green-600 text-white rounded-full text-sm">Servidores</span>
-                            <span class="px-3 py-1 bg-purple-600 text-white rounded-full text-sm">NTFS</span>
-                            <span class="px-3 py-1 bg-orange-600 text-white rounded-full text-sm">SMB</span>
-                            <span class="px-3 py-1 bg-red-600 text-white rounded-full text-sm">Automação</span>
-                            <span class="px-3 py-1 bg-indigo-600 text-white rounded-full text-sm">Active Directory</span>
-                            <span class="px-3 py-1 bg-teal-600 text-white rounded-full text-sm">Windows Server</span>
-                        </div>
-                    </div>
                 </div>
             </div>
     </div>
@@ -3316,7 +3354,7 @@ while ($true) {
                         <i data-feather="info" class="w-5 h-5 mr-2" aria-hidden="true"></i>
                         Sobre este Portfólio
                     </h3>
-                    <p class="text-gray-400 text-sm">Portfólio onde apresento meu trabalho e experiências.</p>
+                    <p class="text-gray-400 text-sm">Desenvolvido com carinho para compartilhar minhas experiências e projetos pessoais.</p>
                     <p class="text-gray-400 text-sm">© 2026 - Todos os direitos reservados</p>
                 </div>
             </div>
@@ -3446,9 +3484,26 @@ while ($true) {
             // Torna as funções globais para os onclick handlers
             window.toggleFullscreen = toggleFullscreen;
 
+            const modalIds = ['projectModal', 'servicesModal', 'articleModal', 'sharesModal'];
+            const hasOpenModal = () => modalIds.some(id => {
+                const modal = document.getElementById(id);
+                return modal && !modal.classList.contains('hidden');
+            });
+
+            const syncModalUIState = () => {
+                const modalOpen = hasOpenModal();
+                document.body.classList.toggle('modal-open', modalOpen);
+                document.body.style.overflow = modalOpen ? 'hidden' : 'auto';
+
+                const scrollBtn = document.getElementById('scrollToTop');
+                if (scrollBtn && modalOpen) {
+                    scrollBtn.classList.remove('show');
+                }
+            };
+
             function openProjectModal() {
                 document.getElementById('projectModal').classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
+                syncModalUIState();
                 // Re-initialize feather icons in the modal
                 setTimeout(() => feather.replace(), 100);
             }
@@ -3456,13 +3511,13 @@ while ($true) {
 
             function closeProjectModal() {
                 document.getElementById('projectModal').classList.add('hidden');
-                document.body.style.overflow = 'auto';
+                syncModalUIState();
             }
             window.closeProjectModal = closeProjectModal;
             
             function openServicesModal() {
                 document.getElementById('servicesModal').classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
+                syncModalUIState();
                 // Re-initialize feather icons in the modal
                 setTimeout(() => feather.replace(), 100);
             }
@@ -3470,13 +3525,13 @@ while ($true) {
 
             function closeServicesModal() {
                 document.getElementById('servicesModal').classList.add('hidden');
-                document.body.style.overflow = 'auto';
+                syncModalUIState();
             }
             window.closeServicesModal = closeServicesModal;
             
             function openArticleModal() {
                 document.getElementById('articleModal').classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
+                syncModalUIState();
                 // Re-initialize feather icons in the modal
                 setTimeout(() => feather.replace(), 100);
             }
@@ -3484,13 +3539,13 @@ while ($true) {
 
             function closeArticleModal() {
                 document.getElementById('articleModal').classList.add('hidden');
-                document.body.style.overflow = 'auto';
+                syncModalUIState();
             }
             window.closeArticleModal = closeArticleModal;
             
             function openSharesModal() {
                 document.getElementById('sharesModal').classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
+                syncModalUIState();
                 // Re-initialize feather icons in the modal
                 setTimeout(() => feather.replace(), 100);
             }
@@ -3498,7 +3553,7 @@ while ($true) {
 
             function closeSharesModal() {
                 document.getElementById('sharesModal').classList.add('hidden');
-                document.body.style.overflow = 'auto';
+                syncModalUIState();
             }
             window.closeSharesModal = closeSharesModal;
             window.closeServicesModal = closeServicesModal;
@@ -3611,6 +3666,11 @@ while ($true) {
             const scrollToTopBtn = document.getElementById('scrollToTop');
             
             window.addEventListener('scroll', function() {
+                if (hasOpenModal()) {
+                    scrollToTopBtn.classList.remove('show');
+                    return;
+                }
+
                 if (window.pageYOffset > 300) {
                     scrollToTopBtn.classList.add('show');
                 } else {
@@ -3621,6 +3681,8 @@ while ($true) {
             scrollToTopBtn.addEventListener('click', function() {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
+
+            syncModalUIState();
             
         }); // End DOMContentLoaded
     </script>
