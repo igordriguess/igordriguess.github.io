@@ -1977,10 +1977,33 @@
             .nav-controls { gap: 6px !important; }
         }
 
+        /* === PROJECT CARD LAYOUT === */
+        #projetos .grid > div {
+            display: flex;
+            flex-direction: column;
+        }
+        #projetos .grid > div > .p-4 {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 20px !important;
+        }
+        #projetos .grid > div > .p-4 > h3 {
+            margin-bottom: 12px;
+        }
+        #projetos .grid > div > .p-4 > p {
+            margin-bottom: 16px;
+        }
+        #projetos .grid > div > .p-4 > .proj-card-footer {
+            margin-top: auto;
+            padding-top: 12px;
+        }
+
         /* === PROJECT CARD FOOTER === */
         .proj-card-footer {
-            flex-wrap: wrap;
-            gap: 8px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
         }
         .proj-card-footer .flex.gap-2 {
             flex-shrink: 0;
@@ -2323,16 +2346,10 @@
                             <div class="p-4">
                                 <h3 class="text-lg font-bold text-blue-400">Portal de Plataformas CCM</h3>
                                 <p class="text-sm text-gray-300 mt-2">Portal web centralizado que reúne todas as ferramentas internas de engenharia cloud da CCM — sizing, monitoramento, inventário, custos e mais.</p>
-                                <div class="flex flex-wrap gap-2 mt-4">
-                                    <span class="text-xs bg-gray-700 px-2 py-1 rounded">React</span>
-                                    <span class="text-xs bg-gray-700 px-2 py-1 rounded">Vite</span>
-                                    <span class="text-xs bg-gray-700 px-2 py-1 rounded">Tailwind CSS</span>
-                                    <span class="text-xs bg-gray-700 px-2 py-1 rounded">Framer Motion</span>
-                                </div>
-                                <div class="mt-4 flex items-center justify-between proj-card-footer">
+                                <div class="mt-4 flex proj-card-footer">
                                     <div class="flex items-center text-sm text-gray-400">
                                         <i data-feather="grid" class="w-4 h-4 mr-2"></i>
-                                        <span>Portal Interno</span>
+                                        <span>Portal Engenharia CCM</span>
                                     </div>
                                     <button onclick="openPortalModal()" class="btn-blue-pill">
                                         <i data-feather="eye"></i> Ver detalhes
@@ -2348,15 +2365,10 @@
                             <div class="p-4">
                                 <h3 class="text-lg font-bold text-blue-400">Ferramenta para Gerenciar Active Directory</h3>
                                 <p class="text-sm text-gray-300 mt-2">Script em PowerShell para automatizar operações no AD: criar usuários, resetar senhas, gerenciar grupos e permissões com interface intuitiva.</p>
-                                <div class="flex flex-wrap gap-2 mt-4">
-                                    <span class="text-xs bg-gray-700 px-2 py-1 rounded">PowerShell</span>
-                                    <span class="text-xs bg-gray-700 px-2 py-1 rounded">Active Directory</span>
-                                    <span class="text-xs bg-gray-700 px-2 py-1 rounded">Windows Server</span>
-                                </div>
-                                <div class="mt-4 flex items-center justify-between proj-card-footer">
+                                <div class="mt-4 flex proj-card-footer">
                                     <div class="flex items-center text-sm text-gray-400">
                                         <i data-feather="folder" class="w-4 h-4 mr-2"></i>
-                                        <span>AD Management</span>
+                                        <span>Gerenciador Active Directory</span>
                                     </div>
                                     <div class="flex gap-2">
                                         <a href="https://github.com/igordriguess/PowerShell/blob/main/ManipulaAD.ps1" target="_blank" class="btn-blue-pill">
@@ -2377,22 +2389,16 @@
                             <div class="p-4">
                                 <h3 class="text-lg font-bold text-blue-400">Ferramenta de Gestão de Serviços</h3>
                                 <p class="text-sm text-gray-300 mt-2">Interface gráfica em Python para manipulação remota de serviços em ambientes de Produção e Homologação da infraestrutura HCM SaaS da Senior.</p>
-                                <div class="flex flex-wrap gap-2 mt-4">
-                                    <span class="text-xs bg-gray-700 px-2 py-1 rounded">Python</span>
-                                    <span class="text-xs bg-gray-700 px-2 py-1 rounded">Ttkbootstrap</span>
-                                    <span class="text-xs bg-gray-700 px-2 py-1 rounded">PowerShell</span>
-                                    <span class="text-xs bg-gray-700 px-2 py-1 rounded">Senior HCM</span>
-                                </div>
-                                <div class="mt-4 flex items-center justify-between proj-card-footer">
+                                <div class="mt-4 flex proj-card-footer">
                                     <div class="flex items-center text-sm text-gray-400">
                                         <i data-feather="server" class="w-4 h-4 mr-2"></i>
-                                        <span>SaaS Management</span>
+                                        <span>Gerenciador de Serviços HCM</span>
                                     </div>
                                     <div class="flex gap-2">
-                                        <a href="https://github.com/igordriguess/ManipulaServicesCloud" target="_blank" class="btn-green-pill">
+                                        <a href="https://github.com/igordriguess/ManipulaServicesCloud" target="_blank" class="btn-blue-pill">
                                             <i data-feather="github"></i> Repositório
                                         </a>
-                                        <button onclick="openServicesModal()" class="btn-green-pill">
+                                        <button onclick="openProjectModal()" class="btn-blue-pill">
                                             <i data-feather="eye"></i> Ver detalhes
                                         </button>
                                     </div>
