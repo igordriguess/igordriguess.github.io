@@ -1329,7 +1329,8 @@
         #projectModal > div,
         #servicesModal > div,
         #articleModal > div,
-        #sharesModal > div {
+        #sharesModal > div,
+        #portalModal > div {
             background: var(--card) !important;
             border-color: var(--border) !important;
         }
@@ -1338,14 +1339,17 @@
         #servicesModal .sticky,
         #articleModal .sticky,
         #sharesModal .sticky,
+        #portalModal .sticky,
         #projectModal .bg-gray-800,
         #servicesModal .bg-gray-800,
         #articleModal .bg-gray-800,
         #sharesModal .bg-gray-800,
+        #portalModal .bg-gray-800,
         #projectModal .bg-gray-700,
         #servicesModal .bg-gray-700,
         #articleModal .bg-gray-700,
-        #sharesModal .bg-gray-700 {
+        #sharesModal .bg-gray-700,
+        #portalModal .bg-gray-700 {
             background: var(--surface-alt) !important;
             border-color: var(--border) !important;
         }
@@ -1353,7 +1357,8 @@
         #projectModal [class*="bg-gradient-to"],
         #servicesModal [class*="bg-gradient-to"],
         #articleModal [class*="bg-gradient-to"],
-        #sharesModal [class*="bg-gradient-to"] {
+        #sharesModal [class*="bg-gradient-to"],
+        #portalModal [class*="bg-gradient-to"] {
             background: #1f2937 !important;
             color: var(--text-strong) !important;
         }
@@ -1361,7 +1366,8 @@
         #projectModal [class*="border-l-4"],
         #servicesModal [class*="border-l-4"],
         #articleModal [class*="border-l-4"],
-        #sharesModal [class*="border-l-4"] {
+        #sharesModal [class*="border-l-4"],
+        #portalModal [class*="border-l-4"] {
             border-left-color: var(--border) !important;
         }
 
@@ -1396,7 +1402,15 @@
         #sharesModal .text-yellow-400,
         #sharesModal .text-orange-400,
         #sharesModal .text-red-400,
-        #sharesModal .text-indigo-400 {
+        #sharesModal .text-indigo-400,
+        #portalModal .text-blue-400,
+        #portalModal .text-green-400,
+        #portalModal .text-purple-400,
+        #portalModal .text-cyan-400,
+        #portalModal .text-yellow-400,
+        #portalModal .text-orange-400,
+        #portalModal .text-red-400,
+        #portalModal .text-indigo-400 {
             color: var(--text-strong) !important;
         }
 
@@ -1404,22 +1418,27 @@
         #servicesModal .text-white,
         #articleModal .text-white,
         #sharesModal .text-white,
+        #portalModal .text-white,
         #projectModal .text-blue-100,
         #servicesModal .text-blue-100,
         #articleModal .text-blue-100,
         #sharesModal .text-blue-100,
+        #portalModal .text-blue-100,
         #projectModal .text-green-100,
         #servicesModal .text-green-100,
         #articleModal .text-green-100,
         #sharesModal .text-green-100,
+        #portalModal .text-green-100,
         #projectModal .text-purple-100,
         #servicesModal .text-purple-100,
         #articleModal .text-purple-100,
         #sharesModal .text-purple-100,
+        #portalModal .text-purple-100,
         #projectModal .text-cyan-100,
         #servicesModal .text-cyan-100,
         #articleModal .text-cyan-100,
-        #sharesModal .text-cyan-100 {
+        #sharesModal .text-cyan-100,
+        #portalModal .text-cyan-100 {
             color: var(--text) !important;
         }
 
@@ -1427,17 +1446,20 @@
         #servicesModal .rounded-full,
         #articleModal .rounded-full,
         #sharesModal .rounded-full,
+        #portalModal .rounded-full,
         #projectModal .rounded-lg,
         #servicesModal .rounded-lg,
         #articleModal .rounded-lg,
-        #sharesModal .rounded-lg {
+        #sharesModal .rounded-lg,
+        #portalModal .rounded-lg {
             border-color: var(--border) !important;
         }
 
         #projectModal span[class*="bg-"],
         #servicesModal span[class*="bg-"],
         #articleModal span[class*="bg-"],
-        #sharesModal span[class*="bg-"] {
+        #sharesModal span[class*="bg-"],
+        #portalModal span[class*="bg-"] {
             background: #1f2937 !important;
             color: var(--text) !important;
             border: 1px solid var(--border);
@@ -1540,7 +1562,8 @@
         [data-theme="light"] #projectModal > div,
         [data-theme="light"] #servicesModal > div,
         [data-theme="light"] #articleModal > div,
-        [data-theme="light"] #sharesModal > div {
+        [data-theme="light"] #sharesModal > div,
+        [data-theme="light"] #portalModal > div {
             background: #ffffff !important;
             border-color: #d1d5db !important;
         }
@@ -1549,18 +1572,22 @@
         [data-theme="light"] #servicesModal .sticky,
         [data-theme="light"] #articleModal .sticky,
         [data-theme="light"] #sharesModal .sticky,
+        [data-theme="light"] #portalModal .sticky,
         [data-theme="light"] #projectModal .bg-gray-800,
         [data-theme="light"] #servicesModal .bg-gray-800,
         [data-theme="light"] #articleModal .bg-gray-800,
         [data-theme="light"] #sharesModal .bg-gray-800,
+        [data-theme="light"] #portalModal .bg-gray-800,
         [data-theme="light"] #projectModal .bg-gray-700,
         [data-theme="light"] #servicesModal .bg-gray-700,
         [data-theme="light"] #articleModal .bg-gray-700,
         [data-theme="light"] #sharesModal .bg-gray-700,
+        [data-theme="light"] #portalModal .bg-gray-700,
         [data-theme="light"] #projectModal .bg-gray-900,
         [data-theme="light"] #servicesModal .bg-gray-900,
         [data-theme="light"] #articleModal .bg-gray-900,
-        [data-theme="light"] #sharesModal .bg-gray-900 {
+        [data-theme="light"] #sharesModal .bg-gray-900,
+        [data-theme="light"] #portalModal .bg-gray-900 {
             background: #f8fafc !important;
             border-color: #d1d5db !important;
         }
@@ -1568,7 +1595,8 @@
         [data-theme="light"] #projectModal [class*="bg-gradient-to"],
         [data-theme="light"] #servicesModal [class*="bg-gradient-to"],
         [data-theme="light"] #articleModal [class*="bg-gradient-to"],
-        [data-theme="light"] #sharesModal [class*="bg-gradient-to"] {
+        [data-theme="light"] #sharesModal [class*="bg-gradient-to"],
+        [data-theme="light"] #portalModal [class*="bg-gradient-to"] {
             background: var(--surface-alt) !important;
             color: #0f172a !important;
         }
@@ -1576,14 +1604,16 @@
         [data-theme="light"] #projectModal [class*="bg-gradient-to"] svg,
         [data-theme="light"] #servicesModal [class*="bg-gradient-to"] svg,
         [data-theme="light"] #articleModal [class*="bg-gradient-to"] svg,
-        [data-theme="light"] #sharesModal [class*="bg-gradient-to"] svg {
+        [data-theme="light"] #sharesModal [class*="bg-gradient-to"] svg,
+        [data-theme="light"] #portalModal [class*="bg-gradient-to"] svg {
             color: #0f172a !important;
         }
 
         [data-theme="light"] #projectModal span[class*="bg-"],
         [data-theme="light"] #servicesModal span[class*="bg-"],
         [data-theme="light"] #articleModal span[class*="bg-"],
-        [data-theme="light"] #sharesModal span[class*="bg-"] {
+        [data-theme="light"] #sharesModal span[class*="bg-"],
+        [data-theme="light"] #portalModal span[class*="bg-"] {
             background: #e2e8f0 !important;
             color: #334155 !important;
             border-color: #cbd5e1 !important;
@@ -1654,21 +1684,24 @@
         #projectModal > div,
         #servicesModal > div,
         #articleModal > div,
-        #sharesModal > div {
+        #sharesModal > div,
+        #portalModal > div {
             box-shadow: 0 24px 60px rgba(15, 23, 42, 0.22);
         }
 
         #projectModal .sticky,
         #servicesModal .sticky,
         #articleModal .sticky,
-        #sharesModal .sticky {
+        #sharesModal .sticky,
+        #portalModal .sticky {
             border-bottom: 1px solid var(--border) !important;
         }
 
         #projectModal .p-6.space-y-6 > div,
         #servicesModal .p-6.space-y-6 > div,
         #articleModal .p-6.space-y-6 > div,
-        #sharesModal .p-6.space-y-6 > div {
+        #sharesModal .p-6.space-y-6 > div,
+        #portalModal .p-6.space-y-6 > div {
             border: 1px solid var(--border);
             border-radius: 12px;
             box-shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset;
@@ -1677,7 +1710,8 @@
         #projectModal > div,
         #servicesModal > div,
         #articleModal > div,
-        #sharesModal > div {
+        #sharesModal > div,
+        #portalModal > div {
             display: flex;
             flex-direction: column;
             overflow: hidden;
@@ -1687,7 +1721,8 @@
         #projectModal .modal-body-scroll,
         #servicesModal .modal-body-scroll,
         #articleModal .modal-body-scroll,
-        #sharesModal .modal-body-scroll {
+        #sharesModal .modal-body-scroll,
+        #portalModal .modal-body-scroll {
             overflow-y: auto;
             scrollbar-width: thin;
             scrollbar-color: #94a3b8 transparent;
@@ -1696,7 +1731,8 @@
         #projectModal .modal-body-scroll::-webkit-scrollbar,
         #servicesModal .modal-body-scroll::-webkit-scrollbar,
         #articleModal .modal-body-scroll::-webkit-scrollbar,
-        #sharesModal .modal-body-scroll::-webkit-scrollbar {
+        #sharesModal .modal-body-scroll::-webkit-scrollbar,
+        #portalModal .modal-body-scroll::-webkit-scrollbar {
             width: 10px;
             height: 10px;
         }
@@ -1705,21 +1741,25 @@
         #servicesModal .modal-body-scroll::-webkit-scrollbar-track,
         #articleModal .modal-body-scroll::-webkit-scrollbar-track,
         #sharesModal .modal-body-scroll::-webkit-scrollbar-track,
+        #portalModal .modal-body-scroll::-webkit-scrollbar-track,
         #projectModal .modal-body-scroll::-webkit-scrollbar-track-piece,
         #servicesModal .modal-body-scroll::-webkit-scrollbar-track-piece,
         #articleModal .modal-body-scroll::-webkit-scrollbar-track-piece,
         #sharesModal .modal-body-scroll::-webkit-scrollbar-track-piece,
+        #portalModal .modal-body-scroll::-webkit-scrollbar-track-piece,
         #projectModal .modal-body-scroll::-webkit-scrollbar-corner,
         #servicesModal .modal-body-scroll::-webkit-scrollbar-corner,
         #articleModal .modal-body-scroll::-webkit-scrollbar-corner,
-        #sharesModal .modal-body-scroll::-webkit-scrollbar-corner {
+        #sharesModal .modal-body-scroll::-webkit-scrollbar-corner,
+        #portalModal .modal-body-scroll::-webkit-scrollbar-corner {
             background: transparent;
         }
 
         #projectModal .modal-body-scroll::-webkit-scrollbar-thumb,
         #servicesModal .modal-body-scroll::-webkit-scrollbar-thumb,
         #articleModal .modal-body-scroll::-webkit-scrollbar-thumb,
-        #sharesModal .modal-body-scroll::-webkit-scrollbar-thumb {
+        #sharesModal .modal-body-scroll::-webkit-scrollbar-thumb,
+        #portalModal .modal-body-scroll::-webkit-scrollbar-thumb {
             background: #94a3b8;
             border-radius: 999px;
             border: 3px solid transparent;
@@ -1729,7 +1769,8 @@
         #projectModal .modal-body-scroll::-webkit-scrollbar-thumb:hover,
         #servicesModal .modal-body-scroll::-webkit-scrollbar-thumb:hover,
         #articleModal .modal-body-scroll::-webkit-scrollbar-thumb:hover,
-        #sharesModal .modal-body-scroll::-webkit-scrollbar-thumb:hover {
+        #sharesModal .modal-body-scroll::-webkit-scrollbar-thumb:hover,
+        #portalModal .modal-body-scroll::-webkit-scrollbar-thumb:hover {
             background: #64748b;
             background-clip: content-box;
         }
@@ -1738,18 +1779,22 @@
         #servicesModal .modal-body-scroll::-webkit-scrollbar-button,
         #articleModal .modal-body-scroll::-webkit-scrollbar-button,
         #sharesModal .modal-body-scroll::-webkit-scrollbar-button,
+        #portalModal .modal-body-scroll::-webkit-scrollbar-button,
         #projectModal .modal-body-scroll::-webkit-scrollbar-button:single-button,
         #servicesModal .modal-body-scroll::-webkit-scrollbar-button:single-button,
         #articleModal .modal-body-scroll::-webkit-scrollbar-button:single-button,
         #sharesModal .modal-body-scroll::-webkit-scrollbar-button:single-button,
+        #portalModal .modal-body-scroll::-webkit-scrollbar-button:single-button,
         #projectModal .modal-body-scroll::-webkit-scrollbar-button:vertical:decrement,
         #servicesModal .modal-body-scroll::-webkit-scrollbar-button:vertical:decrement,
         #articleModal .modal-body-scroll::-webkit-scrollbar-button:vertical:decrement,
         #sharesModal .modal-body-scroll::-webkit-scrollbar-button:vertical:decrement,
+        #portalModal .modal-body-scroll::-webkit-scrollbar-button:vertical:decrement,
         #projectModal .modal-body-scroll::-webkit-scrollbar-button:vertical:increment,
         #servicesModal .modal-body-scroll::-webkit-scrollbar-button:vertical:increment,
         #articleModal .modal-body-scroll::-webkit-scrollbar-button:vertical:increment,
-        #sharesModal .modal-body-scroll::-webkit-scrollbar-button:vertical:increment {
+        #sharesModal .modal-body-scroll::-webkit-scrollbar-button:vertical:increment,
+        #portalModal .modal-body-scroll::-webkit-scrollbar-button:vertical:increment {
             -webkit-appearance: none;
             appearance: none;
             display: none;
@@ -1762,7 +1807,8 @@
         [data-theme="light"] #projectModal > div,
         [data-theme="light"] #servicesModal > div,
         [data-theme="light"] #articleModal > div,
-        [data-theme="light"] #sharesModal > div {
+        [data-theme="light"] #sharesModal > div,
+        [data-theme="light"] #portalModal > div {
             background: #ffffff !important;
             box-shadow: 0 28px 70px rgba(15, 23, 42, 0.18);
         }
@@ -1770,7 +1816,8 @@
         [data-theme="light"] #projectModal .sticky,
         [data-theme="light"] #servicesModal .sticky,
         [data-theme="light"] #articleModal .sticky,
-        [data-theme="light"] #sharesModal .sticky {
+        [data-theme="light"] #sharesModal .sticky,
+        [data-theme="light"] #portalModal .sticky {
             background: #f8fafc !important;
             border-bottom: 1px solid #d1d5db !important;
         }
@@ -1778,7 +1825,8 @@
         [data-theme="light"] #projectModal .p-6.space-y-6 > div,
         [data-theme="light"] #servicesModal .p-6.space-y-6 > div,
         [data-theme="light"] #articleModal .p-6.space-y-6 > div,
-        [data-theme="light"] #sharesModal .p-6.space-y-6 > div {
+        [data-theme="light"] #sharesModal .p-6.space-y-6 > div,
+        [data-theme="light"] #portalModal .p-6.space-y-6 > div {
             background: #ffffff !important;
             border: 1px solid #d1d5db !important;
             box-shadow: 0 3px 12px rgba(15, 23, 42, 0.05);
@@ -1787,21 +1835,24 @@
         [data-theme="light"] #projectModal > div,
         [data-theme="light"] #servicesModal > div,
         [data-theme="light"] #articleModal > div,
-        [data-theme="light"] #sharesModal > div {
+        [data-theme="light"] #sharesModal > div,
+        [data-theme="light"] #portalModal > div {
             scrollbar-color: #94a3b8 transparent;
         }
 
         [data-theme="light"] #projectModal > div::-webkit-scrollbar-thumb,
         [data-theme="light"] #servicesModal > div::-webkit-scrollbar-thumb,
         [data-theme="light"] #articleModal > div::-webkit-scrollbar-thumb,
-        [data-theme="light"] #sharesModal > div::-webkit-scrollbar-thumb {
+        [data-theme="light"] #sharesModal > div::-webkit-scrollbar-thumb,
+        [data-theme="light"] #portalModal > div::-webkit-scrollbar-thumb {
             background: #94a3b8;
         }
 
         [data-theme="light"] #projectModal > div::-webkit-scrollbar-thumb:hover,
         [data-theme="light"] #servicesModal > div::-webkit-scrollbar-thumb:hover,
         [data-theme="light"] #articleModal > div::-webkit-scrollbar-thumb:hover,
-        [data-theme="light"] #sharesModal > div::-webkit-scrollbar-thumb:hover {
+        [data-theme="light"] #sharesModal > div::-webkit-scrollbar-thumb:hover,
+        [data-theme="light"] #portalModal > div::-webkit-scrollbar-thumb:hover {
             background: #64748b;
         }
 
@@ -1853,17 +1904,41 @@
             /* section card inner padding */
             section.bg-gray-900 { padding: 16px !important; }
             /* tight modal overlay */
-            #projectModal, #servicesModal, #articleModal, #sharesModal { padding: 8px !important; }
+            #projectModal, #servicesModal, #articleModal, #sharesModal, #portalModal { padding: 8px !important; }
             /* single-column grids inside modals */
             #projectModal  .grid,
             #servicesModal .grid,
             #articleModal  .grid,
-            #sharesModal   .grid { grid-template-columns: 1fr !important; }
+            #sharesModal   .grid,
+            #portalModal   .grid { grid-template-columns: 1fr !important; }
             /* modal sticky header */
             #projectModal  > div .sticky,
             #servicesModal > div .sticky,
             #articleModal  > div .sticky,
-            #sharesModal   > div .sticky { padding: 12px 16px !important; }
+            #sharesModal   > div .sticky,
+            #portalModal   > div .sticky { padding: 12px 16px !important; }
+            /* modal content full height on mobile */
+            #projectModal > div,
+            #servicesModal > div,
+            #articleModal > div,
+            #sharesModal > div,
+            #portalModal > div { max-height: calc(100dvh - 80px) !important; max-width: 100% !important; border-radius: 12px !important; margin-top: 0 !important; margin-bottom: 0 !important; }
+            #projectModal .modal-body-scroll,
+            #servicesModal .modal-body-scroll,
+            #articleModal .modal-body-scroll,
+            #sharesModal .modal-body-scroll,
+            #portalModal .modal-body-scroll { padding: 16px !important; padding-bottom: 24px !important; flex: 1 !important; overflow-y: auto !important; }
+            /* modal header compact */
+            #projectModal  > div .sticky h2,
+            #servicesModal > div .sticky h2,
+            #articleModal  > div .sticky h2,
+            #sharesModal   > div .sticky h2,
+            #portalModal   > div .sticky h2 { font-size: 1.1rem !important; }
+            #projectModal  > div .sticky p,
+            #servicesModal > div .sticky p,
+            #articleModal  > div .sticky p,
+            #sharesModal   > div .sticky p,
+            #portalModal   > div .sticky p { font-size: 0.75rem !important; }
             /* scroll-to-top button */
             #scrollToTop { bottom: 16px; right: 16px; width: 42px; height: 42px; }
             #scrollToTop svg { width: 20px; height: 20px; }
@@ -1886,6 +1961,9 @@
             .proj-card-footer { flex-direction: column; align-items: flex-start; gap: 8px; }
             .proj-card-footer button,
             .proj-card-footer a { width: 100%; justify-content: center; }
+            .proj-card-footer .flex.gap-2 { flex-direction: column; width: 100%; gap: 6px; }
+            .proj-card-footer .flex.gap-2 a,
+            .proj-card-footer .flex.gap-2 button { width: 100%; justify-content: center; }
             /* resume section header buttons stack */
             .resume-header-btns { flex-direction: column; align-items: flex-start; gap: 6px !important; }
         }
@@ -1899,11 +1977,26 @@
             .nav-controls { gap: 6px !important; }
         }
 
+        /* === PROJECT CARD FOOTER === */
+        .proj-card-footer {
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .proj-card-footer .flex.gap-2 {
+            flex-shrink: 0;
+        }
+        .proj-card-footer .flex.gap-2 a,
+        .proj-card-footer .flex.gap-2 button {
+            white-space: nowrap;
+            font-size: 0.8rem;
+        }
+
         /* === MODAL FIX === */
         #projectModal,
         #servicesModal,
         #articleModal,
-        #sharesModal {
+        #sharesModal,
+        #portalModal {
             display: flex !important;
             flex-direction: column;
             align-items: center;
@@ -1915,7 +2008,8 @@
         #projectModal.hidden,
         #servicesModal.hidden,
         #articleModal.hidden,
-        #sharesModal.hidden {
+        #sharesModal.hidden,
+        #portalModal.hidden {
             display: none !important;
         }
         /* margin: auto distribui o espaço restante igualmente acima e abaixo,
@@ -1923,7 +2017,8 @@
         #projectModal > div,
         #servicesModal > div,
         #articleModal > div,
-        #sharesModal > div {
+        #sharesModal > div,
+        #portalModal > div {
             width: 100%;
             flex-shrink: 0;
             margin-top: auto;
@@ -2181,7 +2276,7 @@
                             implementação de microserviços e otimização de infraestruturas em nuvem.
                         </p>
                         <p class="text-gray-300">
-                            Possuo experiência no desenvolvimento de ferramentas e automações utilizando Python, PowerShell, Bash, TypeScript, Java e JavaScript
+                            Possuo experiência no desenvolvimento de ferramentas utilizando Python, TypeScript e JavaScript
                             além de aplicar práticas de Infraestrutura como Código (IaC) com Terraform, Ansible, Jenkins e Kubernetes, promovendo maior eficiência,
                             escalabilidade e governança nos ambientes corporativos.
                         </p>
@@ -2191,24 +2286,24 @@
                                 <p class="text-sm text-gray-300">Python, PowerShell, Bash, TypeScript, Java, JavaScript</p>
                             </div>
                             <div class="bg-gray-800 p-4 rounded border-l-4 border-green-400">
-                                <h3 class="text-green-400 font-bold">Cloud Platforms</h3>
+                                <h3 class="text-green-400 font-bold">Plataformas de Nuvem</h3>
                                 <p class="text-sm text-gray-300">OCI, AWS, Azure, GCP, Huawei</p>
                             </div>
                             <div class="bg-gray-800 p-4 rounded border-l-4 border-purple-400">
                                 <h3 class="text-purple-400 font-bold">DevOps</h3>
-                                <p class="text-sm text-gray-300">Terraform, Ansible, Kubernetes, Docker, Jenkins</p>
+                                <p class="text-sm text-gray-300">Terraform, Ansible, Kubernetes, Docker Compose, Podman, Jenkins</p>
                             </div>
                             <div class="bg-gray-800 p-4 rounded border-l-4 border-yellow-400">
-                                <h3 class="text-yellow-400 font-bold">Databases</h3>
-                                <p class="text-sm text-gray-300">SQL Server, Oracle, PostgreSQL, MySQL, MongoDB, Autonomous Database</p>
+                                <h3 class="text-yellow-400 font-bold">Banco de Dados</h3>
+                                <p class="text-sm text-gray-300">SQL Server, Oracle Database, PostgreSQL, MySQL, MongoDB, Redis, Neo4j, Snowflake</p>
                             </div>
                             <div class="bg-gray-800 p-4 rounded border-l-4 border-red-400">
-                                <h3 class="text-red-400 font-bold">Monitoring</h3>
-                                <p class="text-sm text-gray-300">Zabbix, Grafana, DataDog</p>
+                                <h3 class="text-red-400 font-bold">Monitoramento e Segurança</h3>
+                                <p class="text-sm text-gray-300">Zabbix, Grafana, DataDog, Endpoint Sophos, Firewall Sophos, Firewall Fortigate</p>
                             </div>
                             <div class="bg-gray-800 p-4 rounded border-l-4 border-indigo-400">
-                                <h3 class="text-indigo-400 font-bold">Tools</h3>
-                                <p class="text-sm text-gray-300">RabbitMQ, Apache Kafka, Apache Tomcat, WildFly, N8N, NodeJS</p>
+                                <h3 class="text-indigo-400 font-bold">Ferramentas</h3>
+                                <p class="text-sm text-gray-300">RabbitMQ, Apache Kafka, Apache Tomcat, WildFly, Glassfisg, N8N</p>
                             </div>
                         </div>
                     </div>
@@ -2219,8 +2314,33 @@
                     <div class="flex items-center mb-4 section-title-row">
                         <h2 class="text-2xl font-bold gradient-text">Projetos</h2>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Project 1 - AD Management Tool -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Project 1 - Portal de Plataformas CCM -->
+                        <div class="bg-gray-800 rounded-lg overflow-hidden border border-gray-700 hover:border-blue-400 transition-colors">
+                            <div class="w-full h-40 bg-gradient-to-br from-indigo-600 to-blue-700 flex items-center justify-center">
+                                <i data-feather="layout" class="w-16 h-16 text-white"></i>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-lg font-bold text-blue-400">Portal de Plataformas CCM</h3>
+                                <p class="text-sm text-gray-300 mt-2">Portal web centralizado que reúne todas as ferramentas internas de engenharia cloud da CCM — sizing, monitoramento, inventário, custos e mais.</p>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span class="text-xs bg-gray-700 px-2 py-1 rounded">React</span>
+                                    <span class="text-xs bg-gray-700 px-2 py-1 rounded">Vite</span>
+                                    <span class="text-xs bg-gray-700 px-2 py-1 rounded">Tailwind CSS</span>
+                                    <span class="text-xs bg-gray-700 px-2 py-1 rounded">Framer Motion</span>
+                                </div>
+                                <div class="mt-4 flex items-center justify-between proj-card-footer">
+                                    <div class="flex items-center text-sm text-gray-400">
+                                        <i data-feather="grid" class="w-4 h-4 mr-2"></i>
+                                        <span>Portal Interno</span>
+                                    </div>
+                                    <button onclick="openPortalModal()" class="btn-blue-pill">
+                                        <i data-feather="eye"></i> Ver detalhes
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Project 2 - AD Management Tool -->
                         <div class="bg-gray-800 rounded-lg overflow-hidden border border-gray-700 hover:border-blue-400 transition-colors">
                             <div class="w-full h-40 bg-gradient-to-br from-blue-600 to-purple-700 flex items-center justify-center">
                                 <i data-feather="users" class="w-16 h-16 text-white"></i>
@@ -2238,13 +2358,18 @@
                                         <i data-feather="folder" class="w-4 h-4 mr-2"></i>
                                         <span>AD Management</span>
                                     </div>
-                                    <button onclick="openProjectModal()" class="btn-blue-pill">
-                                        <i data-feather="eye"></i> Ver detalhes
-                                    </button>
+                                    <div class="flex gap-2">
+                                        <a href="https://github.com/igordriguess/PowerShell/blob/main/ManipulaAD.ps1" target="_blank" class="btn-blue-pill">
+                                            <i data-feather="github"></i> Repositório
+                                        </a>
+                                        <button onclick="openProjectModal()" class="btn-blue-pill">
+                                            <i data-feather="eye"></i> Ver detalhes
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Project 2 - Services Management Tool -->
+                        <!-- Project 3 - Services Management Tool -->
                         <div class="bg-gray-800 rounded-lg overflow-hidden border border-gray-700 hover:border-blue-400 transition-colors">
                             <div class="w-full h-40 bg-gradient-to-br from-green-600 to-teal-600 flex items-center justify-center">
                                 <i data-feather="settings" class="w-16 h-16 text-white"></i>
@@ -2263,9 +2388,14 @@
                                         <i data-feather="server" class="w-4 h-4 mr-2"></i>
                                         <span>SaaS Management</span>
                                     </div>
-                                    <button onclick="openServicesModal()" class="btn-green-pill">
-                                        <i data-feather="eye"></i> Ver detalhes
-                                    </button>
+                                    <div class="flex gap-2">
+                                        <a href="https://github.com/igordriguess/ManipulaServicesCloud" target="_blank" class="btn-green-pill">
+                                            <i data-feather="github"></i> Repositório
+                                        </a>
+                                        <button onclick="openServicesModal()" class="btn-green-pill">
+                                            <i data-feather="eye"></i> Ver detalhes
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -2795,6 +2925,147 @@
                         </div>
                     </div>
 
+                </div>
+            </div>
+    </div>
+
+    <!-- Modal do Portal de Plataformas CCM -->
+    <div id="portalModal" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden">
+            <div class="bg-gray-900 rounded-xl border border-gray-700 max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+                <div class="sticky top-0 bg-gray-900 border-b border-gray-700 p-6 flex items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-indigo-600 to-blue-700 rounded-lg flex items-center justify-center mr-4">
+                            <i data-feather="layout" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-blue-400">Portal de Plataformas CCM</h2>
+                            <p class="text-gray-400">Hub centralizado de ferramentas de engenharia cloud</p>
+                        </div>
+                    </div>
+                    <button onclick="closePortalModal()" class="text-gray-400 hover:text-white">
+                        <i data-feather="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+
+                <div class="modal-body-scroll p-6 space-y-6">
+                    <!-- Descrição Principal -->
+                    <div class="bg-gray-800 rounded-lg p-6 border-l-4 border-blue-400">
+                        <h3 class="text-xl font-bold text-blue-400 mb-4">Sobre o Projeto</h3>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            O Portal de Plataformas é uma aplicação web que desenvolvi para centralizar todas as ferramentas internas
+                            da equipe de engenharia cloud da CCM Tecnologia. Antes do portal, cada ferramenta era acessada por um IP e porta
+                            diferente, o que dificultava a organização e o dia a dia do time.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            Com o portal, todas as plataformas ficam reunidas em um único lugar, com busca, filtros por categoria
+                            e uma interface moderna que facilita encontrar e acessar qualquer recurso rapidamente.
+                            O projeto está em constante evolução, recebendo novas ferramentas conforme surgem demandas.
+                        </p>
+                    </div>
+
+                    <!-- O que o portal reúne -->
+                    <div class="bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-green-400 mb-4">O que o Portal Reúne</h3>
+                        <p class="text-gray-300 text-sm mb-4">Atualmente são <span class="font-bold text-white">16 plataformas</span> organizadas por categorias:</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-bold text-blue-400">Discovery</h4>
+                                <p class="text-gray-300 text-sm mt-1">Descoberta de recursos e inventário de compartimentos na Oracle Cloud (OCI).</p>
+                            </div>
+                            <div class="bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-bold text-green-400">Sizing</h4>
+                                <p class="text-gray-300 text-sm mt-1">Dimensionamento de infraestrutura e estimativa de custos para OCI, bancos de dados e Sophos.</p>
+                            </div>
+                            <div class="bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-bold text-purple-400">Monitoramento</h4>
+                                <p class="text-gray-300 text-sm mt-1">Monitoramento em tempo real de infraestrutura e recursos cloud.</p>
+                            </div>
+                            <div class="bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-bold text-red-400">Custos</h4>
+                                <p class="text-gray-300 text-sm mt-1">Análise de custos por serviço e compartimento em múltiplos tenancies da OCI.</p>
+                            </div>
+                            <div class="bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-bold text-cyan-400">Inventário</h4>
+                                <p class="text-gray-300 text-sm mt-1">Inventário completo de recursos AWS e OCI para planejamento de migração.</p>
+                            </div>
+                            <div class="bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-bold text-yellow-400">Ferramentas</h4>
+                                <p class="text-gray-300 text-sm mt-1">Visualizador de rede, diagramas, comparação de ambientes, backup, storage, Kubernetes e mais.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Funcionalidades do Portal -->
+                    <div class="bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-purple-400 mb-4">Funcionalidades do Portal</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-blue-400 pl-4">
+                                <h4 class="font-bold text-blue-400">Busca Inteligente</h4>
+                                <p class="text-gray-300 text-sm mt-1">Campo de pesquisa que filtra plataformas em tempo real por nome ou descrição.</p>
+                            </div>
+                            <div class="border-l-4 border-green-400 pl-4">
+                                <h4 class="font-bold text-green-400">Filtros por Categoria</h4>
+                                <p class="text-gray-300 text-sm mt-1">Botões para filtrar rapidamente entre Discovery, Sizing, Monitor, Custos, Inventário e Ferramentas.</p>
+                            </div>
+                            <div class="border-l-4 border-purple-400 pl-4">
+                                <h4 class="font-bold text-purple-400">Interface Responsiva</h4>
+                                <p class="text-gray-300 text-sm mt-1">Layout adaptável com grid de cards que se ajusta a qualquer tamanho de tela.</p>
+                            </div>
+                            <div class="border-l-4 border-yellow-400 pl-4">
+                                <h4 class="font-bold text-yellow-400">Animações Fluidas</h4>
+                                <p class="text-gray-300 text-sm mt-1">Transições suaves com Framer Motion para uma experiência visual agradável e profissional.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stack Técnico -->
+                    <div class="bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-orange-400 mb-4">Stack Técnico</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                                    <i data-feather="code" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <h4 class="font-bold text-blue-400">React + Vite</h4>
+                                <p class="text-gray-300 text-sm">Frontend rápido e modular com build otimizado</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-teal-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                                    <i data-feather="feather" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <h4 class="font-bold text-teal-400">Tailwind CSS</h4>
+                                <p class="text-gray-300 text-sm">Estilização utilitária para design consistente e responsivo</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                                    <i data-feather="film" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <h4 class="font-bold text-purple-400">Framer Motion</h4>
+                                <p class="text-gray-300 text-sm">Animações e transições de interface fluidas</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Por que o portal é importante -->
+                    <div class="bg-gray-800 rounded-lg p-6 border-l-4 border-green-400">
+                        <h3 class="text-xl font-bold text-green-400 mb-4">Impacto no Time</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <h4 class="font-bold text-blue-400">Produtividade</h4>
+                                <p class="text-gray-300 text-sm">Acesso rápido a qualquer ferramenta sem memorizar IPs e portas</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-400">Onboarding</h4>
+                                <p class="text-gray-300 text-sm">Novos membros encontram tudo o que precisam em um só lugar</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-400">Escalabilidade</h4>
+                                <p class="text-gray-300 text-sm">Novas ferramentas são adicionadas facilmente ao portal</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
     </div>
@@ -3354,8 +3625,8 @@ while ($true) {
                         <i data-feather="info" class="w-5 h-5 mr-2" aria-hidden="true"></i>
                         Sobre este Portfólio
                     </h3>
-                    <p class="text-gray-400 text-sm">Desenvolvido com carinho para compartilhar minhas experiências e projetos pessoais.</p>
-                    <p class="text-gray-400 text-sm">© 2026 - Todos os direitos reservados</p>
+                    <p class="text-gray-400 text-sm">Desenvolvido com carinho para compartilhar meus projetos.</p>
+                    <p class="text-gray-400 text-sm">© 2026 - Todos os direitos reservados.</p>
                 </div>
             </div>
             
@@ -3484,7 +3755,7 @@ while ($true) {
             // Torna as funções globais para os onclick handlers
             window.toggleFullscreen = toggleFullscreen;
 
-            const modalIds = ['projectModal', 'servicesModal', 'articleModal', 'sharesModal'];
+            const modalIds = ['projectModal', 'servicesModal', 'articleModal', 'sharesModal', 'portalModal'];
             const hasOpenModal = () => modalIds.some(id => {
                 const modal = document.getElementById(id);
                 return modal && !modal.classList.contains('hidden');
@@ -3556,6 +3827,19 @@ while ($true) {
                 syncModalUIState();
             }
             window.closeSharesModal = closeSharesModal;
+
+            function openPortalModal() {
+                document.getElementById('portalModal').classList.remove('hidden');
+                syncModalUIState();
+                setTimeout(() => feather.replace(), 100);
+            }
+            window.openPortalModal = openPortalModal;
+
+            function closePortalModal() {
+                document.getElementById('portalModal').classList.add('hidden');
+                syncModalUIState();
+            }
+            window.closePortalModal = closePortalModal;
             window.closeServicesModal = closeServicesModal;
             window.openArticleModal = openArticleModal;
             window.closeArticleModal = closeArticleModal;
@@ -3567,6 +3851,7 @@ while ($true) {
             const servicesModal = document.getElementById('servicesModal'); 
             const articleModal = document.getElementById('articleModal');
             const sharesModal = document.getElementById('sharesModal');
+            const portalModal = document.getElementById('portalModal');
 
             // Close modal when clicking outside
             if (projectModal) {
@@ -3601,6 +3886,14 @@ while ($true) {
                 });
             }
 
+            if (portalModal) {
+                portalModal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closePortalModal();
+                    }
+                });
+            }
+
             // Close modal with ESC key (works for all modals)
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
@@ -3608,6 +3901,7 @@ while ($true) {
                     closeServicesModal();
                     closeArticleModal();
                     closeSharesModal();
+                    closePortalModal();
                 }
             });
 
